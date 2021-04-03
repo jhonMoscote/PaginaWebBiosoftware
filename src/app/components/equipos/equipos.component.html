@@ -1,0 +1,81 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <div class="container  mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <span class="h3">Equipos</span>
+                   
+                   
+                    <table class="table table-striped mt-5">
+                        <thead>
+                          <tr>
+                            <th >Clasificacion</th>
+                            <th >Numero de Equipos</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><a href="../riesgoalto/">Equipos Riesgo Alto</a></td>
+                            <td>
+                              <ul>
+                                <li class="text" *ngFor="let equipo of equiposalto | async ; let indexs = index ; let ultimo = count" [ngClass]="{mostrar:ultimo,noMostrar:indexs}" >
+                                  {{ultimo}}
+                                </li>
+                              </ul>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td ><a href="../riesgomedio/">Equipos Riesgo Medio</a></td>
+                            <td>
+                              <ul>
+                                <li class="text" *ngFor="let equipo of equiposMedio | async ; let indexs = index ; let ultimo = count" [ngClass]="{mostrar:ultimo,noMostrar:indexs}" >
+                                  {{ultimo}}
+                                </li>
+                              </ul>
+                            </td>
+                          </tr>
+      
+                          <tr>
+                            <td ><a href="../riesgobajo/">Equipos Riesgo Bajo</a></td>
+                            <td>
+                              <ul>
+                                <li class="text" *ngFor="let equipo of equipos | async ; let indexs = index ; let ultimo = count" [ngClass]="{mostrar:ultimo,noMostrar:indexs}" >
+                                  {{ultimo}}
+                              
+                                  
+                               
+                                 
+                                 
+                                </li>
+                              </ul>
+                            </td>
+                          </tr>
+      
+                          <tr>
+                            <td ><a href="../dadosbaja/">Equipos Dados de Baja</a></td>
+                            <td>
+                              <ul>
+                                <li class="text" *ngFor="let equipo of equiposDadosBaja | async ; let indexs = index ; let ultimo = count" [ngClass]="{mostrar:ultimo,noMostrar:indexs}" >
+                                  {{ultimo}}
+                                </li>
+                              </ul>
+                            </td>
+
+                          </tr>
+      
+                      
+                       
+                        </tbody>
+                      </table>
+        
+                </div>
+        
+            </div>
+        
+        </div>
+    </body>
+</html>
+ 

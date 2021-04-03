@@ -1,0 +1,36 @@
+<html>
+  <head>
+
+  </head>
+  <body>
+    <div class= "container mt-4">
+      <div class="card">
+        <div class="card-body">
+          <span class="h3">Almacen</span>
+          <table class="table table-striped mt-5 ">
+            <thead>
+              <tr>
+                <td>Nombre</td>
+                <td>Costos</td>
+                <td>Descripcion</td>
+                <td>Cantidad Restantes</td>
+                <td>Cantidad Inicial</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let repuesto of repuestos">
+                <td><a [routerLink]="['/create-almacen/', repuesto.id]">{{repuesto.nombre}}</a></td>
+                <td> {{repuesto.costo}}</td>
+                <td>{{repuesto.descripcion}}</td>
+                <td> {{repuesto.cantidadRestante}}</td>
+                <td>{{repuesto.cantidadInicial}}</td>           
+              </tr>
+              <button class="btn btn-primary btn-lg float-right mt-4 " routerLink="/create-almacen">Agregar</button>
+            </tbody>
+
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

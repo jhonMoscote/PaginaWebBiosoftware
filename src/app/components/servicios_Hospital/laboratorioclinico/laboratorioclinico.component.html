@@ -1,0 +1,70 @@
+<html>
+  <head>
+
+  </head>
+  <body>
+    <div class= "container mt-4">
+      <div class="card">
+        <div class="card-body">
+          <span class="h3">Laboratorio Clínico</span>
+          <table class="table table-striped mt-5 ">
+            <thead>
+              <tr>
+                <td>Nombre Equipo</td>
+                <td>Servicio</td>
+                <td>Estado</td>
+                <td>Serial</td>
+                <td>Costo Mantenimiento</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let equipo of equipos ">
+                
+                <td><a [routerLink] = "['/menuequipo/', equipo.id]">{{equipo.nombreEquipo}}</a></td>
+                <td>{{equipo.servicio}}</td>
+                <td>Disponible</td>
+                <td> {{equipo.serie}}</td>
+                <td>{{equipo.costoMantenimiento}}</td>
+                           
+              </tr>
+            
+         
+            </tbody>
+
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class= "container mt-4">
+        <div class="card">
+          <div class="card-body">
+            <span class="h3">Laboratorio Clínico</span>
+            <table class="table table-striped  ">
+              <thead>
+                <tr>
+                  <td>Numero Equipos</td>
+                  <td>Costos</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <ul>
+                      <li  *ngFor="let equipo of equipos  ; let indexs = index ; let ultimo = count" [ngClass]="{mostrar:ultimo,noMostrar:indexs}" >
+                        {{ultimo}}
+                      </li>
+                    </ul>
+                  </td>
+                  <td>{{costoLaboratorio}}</td>
+                </tr>
+              
+              </tbody>
+  
+            </table>
+          </div>
+        </div>
+      </div>
+  </body>
+</html>
+

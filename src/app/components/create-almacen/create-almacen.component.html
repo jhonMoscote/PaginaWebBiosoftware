@@ -1,0 +1,44 @@
+<div class="container pt-4">
+    <div class="row ">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card text-center">
+                <div class="card-body">
+                     <h3>Agregar Repuesto</h3>
+                     <span *ngIf="submitted && createRepuesto.invalid " class="badge badge-danger" >Todos Los Campos Son Obligatorios</span>
+                        <form class="mt-4" [formGroup]="createRepuesto" (ngSubmit)="agregarRepuesto()">
+                            <div class="row">
+                                
+                                    <div class="mt-3">
+                                        <input type="text" class="form-control form-control-lg " formControlName="nombre" placeholder="Nombre">
+                                    </div>
+
+                                     <div class="mt-3">
+                                        <input type="text" class="form-control form-control-lg mt-3" formControlName="descripcion" placeholder="Descripcion">
+                                     </div>
+                                     
+                                     <div class="mt-3">
+                                        <input type="number" class="form-control form-control-lg mt-3" formControlName="costo" placeholder="Costos">
+                                    </div>
+                              
+                                    <div class="mt-3">
+                                        <input type="number" class="form-control form-control-lg mt-3" formControlName="cantidadInicial" placeholder="Cantidad">
+                                    </div>
+
+                                    <div class="mt-3">
+                                        <input type="number" class="form-control form-control-lg mt-3" formControlName="cantidadRestante" placeholder="Cantidad">
+                                    </div>
+                        
+                                <div class="mt-3 mr-3">
+                                    <button type="submit" class="btn btn-secondary btn-lg mr-12">Agregar Repuesto</button>
+                                    <button type="text"  class="btn btn-secondary btn-lg mr-3" routerLink="/almacen">Regresar</button>
+                                </div>
+                               
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+    </div>
+    </div>
+</div>

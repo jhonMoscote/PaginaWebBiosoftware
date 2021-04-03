@@ -1,0 +1,69 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+
+        <div class="card">
+            <div class="card"> 
+        <div class="container">
+          <h1 class="text-center mt-3">Porcentaje Cumplimiento Mantenimiento Preventivos</h1> 
+          <br>
+          <br>
+
+          <div class="container">
+            <div class="row">
+              
+              <div class="col-sm ">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col" class="text-center">Referencia</th>
+                      <th scope="col" class="text-center">Cantidad</th>
+                     
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td >Número de Mantenimientos Preventivos Programados</td>
+                      <td class="text-center">{{numeropreventivos}}</td>
+                      
+                      
+                 
+                    </tr>
+                    <tr >
+                      <td >Número de Mantenimientos Preventivos Realizados</td>
+                      <td class="text-center">{{numeronorealizados}}</td>
+                 
+                    </tr>
+                    <tr>
+                      <td >Número de Mantenimientos Preventivos No Realizados</td>
+                      <td class="text-center">{{numeropreventivos - numeronorealizados}}</td>
+                    </tr>
+
+                    <tr>
+                      <td >Porcentaje (%) Eficacia</td>
+                      <td class="text-center">{{numeronorealizados / numeropreventivos *100 + " % "}}</td>
+                    </tr>
+
+                    <tr>
+                      <td >Porcentaje (%) Fallo</td>
+                      <td class="text-center">{{100-(numeronorealizados / numeropreventivos *100) + " % " }}</td>
+                    </tr>
+                  
+                
+                  </tbody>
+                </table>
+              </div>
+              </div>
+
+            </div>
+
+          </div>
+        
+        </div>
+      </div>
+    </body>
+</html>
+
+

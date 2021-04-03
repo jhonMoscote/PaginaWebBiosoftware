@@ -1,0 +1,11 @@
+a{
+    text-align: center;
+    float: center;
+    position: center;
+}
+.card{
+    text-align: center;
+    float: center;
+    position: relative;
+    position: fixed;
+}

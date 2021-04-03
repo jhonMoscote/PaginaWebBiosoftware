@@ -1,0 +1,85 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+
+        <div class="card">
+            <div class="card"> 
+        <div class="container">
+          <h3 class="text-center mt-3">Historial Mantenimiento Preventivo</h3> 
+          <br>
+          <br>
+
+          <div class="container">
+            <div class="row">
+              
+              <div class="col-sm ">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col">Referencia</th>
+                      <th scope="col">Cantidad</th>
+                     
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th >Horas Paradas por Mantenimiento Correctivo</th>
+                      <td>{{numerohorasCorrectivo}}</td>
+                      
+                      
+                 
+                    </tr>
+                    <tr >
+                      <th >Horas Paradas por Mantenimiento Preventivo</th>
+                      <td>{{numerohorasPreventivo }}</td>
+                      
+                      
+                      
+                 
+                    </tr>
+                    <tr>
+                      <th >Horas Paradas por Mantenimiento Preventivo y Correctivo</th>
+                      <td>{{numerohorasPreventivo +numerohorasCorrectivo }} </td>
+                      
+                      
+                 
+                    </tr>
+                  
+                
+                  </tbody>
+                </table>
+              </div>
+              </div>
+
+            </div>
+
+          </div>
+          <div class="container">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Asistencia</th>
+                <th scope="col">Tiempo Fuera de Servicio</th>
+                <th scope="col">Fecha Mantenimiento</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let mantenimiento of mantenimientos">
+               
+                    <td> {{mantenimiento.asistencia}}</td> 
+                    <td>{{mantenimiento.tiempofuera}}</td>
+                    <td> {{mantenimiento.fechaCreacion }}</td> 
+                
+              </tr>
+          
+            </tbody>
+          </table>
+        
+          </div>
+        </div>
+      </div>
+    </body>
+</html>
+

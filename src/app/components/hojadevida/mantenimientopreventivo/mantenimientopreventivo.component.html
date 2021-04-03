@@ -1,0 +1,298 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+
+        <div class="card">
+            
+        <div class="container">
+          <h3 class="text-center mt-3">MANTENIMIENTO PREVENTIVO</h3> 
+            <h5 class="mt-4">IDENTIFICACION</h5>
+        <form  [formGroup]="mostrarDatos" class="row g-3"  >
+           
+          <div class="col-md-4 ">
+            <label  class="form-label mt-2">NOMBRE EQUIPO</label>
+            <input type="text" class="form-control" formControlName="nombreEquipo" >
+          </div>
+          
+          <div class="col-md-4">
+            <label  class="form-label mt-2">MARCA</label>
+            <input type="text" class="form-control"  formControlName="marca">
+          </div>
+         
+          <div class="col-4">
+            <label  class="form-label mt-2">MODELO</label>
+            <input type="text" class="form-control"   formControlName="modelo">
+          </div>
+         
+          <div class="col-md-3">
+            <label  class="form-label">NUMERO DE SERIE</label>
+            <input type="text" class="form-control"  formControlName="serie" >
+          </div>
+
+          <div class="col-md-3">
+            <label  class="form-label ">NUMERO DE ACTIVO</label>
+            <input type="text" class="form-control"  formControlName="nactivo" >
+          </div>
+
+          <div class="col-md-3 ">
+              <label  class="form-label ">SERVICIO</label>
+              <input type="text" class="form-control"  formControlName="servicio">
+            </div>
+
+          <div class="col-md-3 ">
+              <label  class="form-label ">AMBIENTE</label>
+              <input type="text" class="form-control"  formControlName="ubicacioncon" >
+          </div>
+           
+        </form>
+          <h5 class="mt-4">DATOS DE LA ASISTENCIA</h5>
+          
+
+
+
+
+        <form class="row g-3" [formGroup]="createPreventivo" (ngSubmit)="agregarMantenimiento()">
+                        <div class="form-group" >
+                          <label >Asistencia</label>
+                          <select class="form-control" formControlName="asistencia">
+                            <option>Preventivo</option>
+                          </select>
+                        </div>
+
+                        <div class="col-md-4">
+                          <label class="form-label">PERIOCIDAD DE MANTENIMIENTO PREVENTIVO</label>
+                          <input type="text" class="form-control" >
+                        </div>
+
+                        <div class="col-md-4">
+                          <label class="form-label">REQUIERE CALIBRACION</label>
+                          <input type="text" class="form-control" >
+                        </div>
+
+                        <div class="col-md-4">
+                          <label class="form-label">PERIOCIDAD DE CALIBRACION</label>
+                          <input type="text" class="form-control" >
+                        </div>
+                    
+                        
+                    
+
+                            <hr style="color: #0056b2;" />
+                            <h5>RUTINA MANTENIMIENTO PREVENTIVO</h5>
+
+                            <table class="table table-bordered">
+                              <thead>
+                                <tr>
+                                  <th scope="col" class="text-center">TRIMESTRAL</th>
+                                  <th scope="col" class="text-center">1</th>
+                                
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>Inspeccionar las condiciones ambientales en las que se encuentra el equipo.</td>
+                                  <td>
+                                    <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" for value="Si" formControlName="rutina1">
+                                    <label class="form-check-label" for="inlineCheckbox1">Si</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="NO">
+                                    <label class="form-check-label" for="inlineCheckbox1">No</label>
+                                  </div>
+                                </td>
+                              
+                                </tr>
+                                <tr>
+                                  <td >Efectuar limpieza general del equipo.</td>
+                                  <td>
+                                    <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" formControlName="rutina2" value="Si">
+                                    <label class="form-check-label" for="inlineCheckbox1">Si</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="NO">
+                                    <label class="form-check-label" for="inlineCheckbox1">No</label>
+                                  </div>
+                                </td>
+                              
+                                </tr>
+                                <tr>
+                                  <td>Efectuar inspección general de equipo (tornillos macro métricos, micrométricos, aspecto físico en general).</td>
+                                  <td>
+                                    <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" formControlName="rutina3" value="Si">
+                                    <label class="form-check-label" for="inlineCheckbox1">Si</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="NO">
+                                    <label class="form-check-label" for="inlineCheckbox1">No</label>
+                                  </div>
+                                </td>
+                                </tr>
+
+                                <tr>
+                                  <td>Revisar manómetros.</td>
+                                  <td>
+                                    <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" formControlName="rutina4" value="Si">
+                                    <label class="form-check-label" for="inlineCheckbox1">Si</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="NO">
+                                    <label class="form-check-label" for="inlineCheckbox1">No</label>
+                                  </div>
+                                </td>
+                                </tr>
+
+                                <tr>
+                                  <td>Verificar el estado de la válvula de seguridad..</td>
+                                  <td>
+                                    <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" formControlName="rutina5" value="Si">
+                                    <label class="form-check-label" for="inlineCheckbox1">Si</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="NO">
+                                    <label class="form-check-label" for="inlineCheckbox1">No</label>
+                                  </div>
+                                </td>
+                                </tr>
+
+                                <tr>
+                                  <td>Verificar estado de resistores.</td>
+                                  <td>
+                                    <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" formControlName="rutina6" value="Si">
+                                    <label class="form-check-label" for="inlineCheckbox1">Si</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="NO">
+                                    <label class="form-check-label" for="inlineCheckbox1">No</label>
+                                  </div>
+                                </td>
+                                </tr>
+
+                                <tr>
+                                  <td>Revisar electroválvulas y cámara del equipo				</td>
+                                  <td>
+                                    <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" formControlName="rutina7" value="Si">
+                                    <label class="form-check-label" for="inlineCheckbox1">Si</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="NO">
+                                    <label class="form-check-label" for="inlineCheckbox1">No</label>
+                                  </div>
+                                </td>
+                                </tr>
+
+                                <tr>
+                                  <td>Verificación de tiempos y modos de verificación. 			</td>
+                                  <td>
+                                    <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" formControlName="rutina8" value="Si">
+                                    <label class="form-check-label" for="inlineCheckbox1">Si</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="NO">
+                                    <label class="form-check-label" for="inlineCheckbox1">No</label>
+                                  </div>
+                                </td>
+                                </tr>
+
+                                <tr>
+                                  <td>Verificación de controles físicos 			</td>
+                                  <td>
+                                    <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" formControlName="rutina9" value="Si">
+                                    <label class="form-check-label" for="inlineCheckbox1">Si</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="NO">
+                                    <label class="form-check-label" for="inlineCheckbox1">No</label>
+                                  </div>
+                                </td>
+                                </tr>
+
+                                <tr>
+                                  <td>Verificar el funcionamiento del equipo junto con el operador.			</td>
+                                  <td>
+                                    <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" formControlName="rutina10"value="Si">
+                                    <label class="form-check-label" for="inlineCheckbox1">Si</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="NO">
+                                    <label class="form-check-label" for="inlineCheckbox1">No</label>
+                                  </div>
+                                </td>
+
+                                
+                                </tr>
+                              </tbody>
+                            </table>
+                            
+                          
+                            
+                            <div class="col-md-4">
+                              <label class="form-label">TIEMPO DE EJECUCIÓN</label>
+                              <input type="number" class="form-control" formControlName="tiempoejecucion" >
+                            </div>
+
+                            
+                            <div class="col-md-4">
+                              <label class="form-label">TIEMPO FUERA DE SERVICIO</label>
+                              <input type="number" class="form-control"  formControlName="tiempofuera">
+                            </div>
+
+
+                            <table class="table table-bordered">
+                              <thead>
+                                <tr>
+                                  <th scope="col" class="text-center">RECOMENDACIONES</th>
+                                  <th scope="col" class="text-center">MATERIAL GASTABLE</th>
+                                  <th scope="col" class="text-center">HERRAMIENTAS Y EQUIPOS</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  
+                                  <td>Complementar la ejecución de la rutina con el manual del fabricante, si este está disponible.</td>
+                                  <td>Desinfectante, Agua destilada.</td>
+                                  <td>Brocha de 2 in, destornillador pala y Philips</td>
+                                </tr>
+                                <tr>
+                                  
+                                  <td>Revisar el número de inventario y repintar si es necesario.</td>
+                                  <td>Jabón neutro</td>
+                                  <td>Multímetro</td>
+                                </tr>
+                                <tr>
+                                  <td>Siempre complete toda la información </td>
+                                  <td >Limpiador de contactos</td>
+                                  <td>Laves variable </td>
+                                </tr>
+                              </tbody>
+                            </table>
+
+                            
+
+
+                            <div class="mt-3 mr-3">
+                              <button type="submit" class="btn btn-secondary btn-lg mr-12 " position="left">Registrar Mantenimiento Preventivo</button>
+                            
+                          </div>
+
+
+
+
+                            
+
+            </form>
+          </div>
+        </div>
+    </body>
+</html>
