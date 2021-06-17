@@ -20,6 +20,18 @@ export class RepuestosService {
     return this.firestore.collection('repuestos').doc(referencia).snapshotChanges();
     
   }
+  getRepuestoID(id: string): Observable<any>{
+    return this.firestore.collection('repuestos').doc(id).snapshotChanges();
+    
+  }
+
+  getRepuestoIDudapte(id: string, data :any): Promise<any>{
+    return this.firestore.collection('repuestos').doc(id).update(data);
+    
+  }
+  eliminarRepuesto(id: string): Promise<any> {
+    return this.firestore.collection('repuestos').doc(id).delete();
+  }
  
  
 }

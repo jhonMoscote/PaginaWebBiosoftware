@@ -1,3 +1,5 @@
+<app-navbar></app-navbar>
+<!doctype html>
 <html>
     <head>
 
@@ -11,54 +13,72 @@
                    
                     <table class="table table-striped mt-5">
                         <thead>
+
                           <tr>
                             <th >Clasificacion</th>
                             <th >Numero de Equipos</th>
                           </tr>
                         </thead>
                         <tbody>
+
                           <tr>
-                            <td><a href="../riesgoalto/">Equipos Riesgo Alto</a></td>
+                            <td ><a routerLink="../riesgobajo">Clase I</a></td>
                             <td>
                               <ul>
-                                <li class="text" *ngFor="let equipo of equiposalto | async ; let indexs = index ; let ultimo = count" [ngClass]="{mostrar:ultimo,noMostrar:indexs}" >
+                                <li class="text" *ngFor="let equipo of equiposClase1 | async ; let indexs = index ; let ultimo = count" [ngClass]="{mostrar:ultimo,noMostrar:indexs}" >
+                                  {{ultimo}}
+
+                                </li>
+                              </ul>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td ><a routerLink="../clase2a">Clase II A</a></td>
+                            <td>
+                              <ul>
+                                <li class="text" *ngFor="let equipo of equiposClase2A | async ; let indexs = index ; let ultimo = count" [ngClass]="{mostrar:ultimo,noMostrar:indexs}" >
                                   {{ultimo}}
                                 </li>
                               </ul>
                             </td>
                           </tr>
+
+                          
                           <tr>
-                            <td ><a href="../riesgomedio/">Equipos Riesgo Medio</a></td>
+                            <td ><a routerLink="/riesgomedio">Clase II B</a></td>
                             <td>
                               <ul>
-                                <li class="text" *ngFor="let equipo of equiposMedio | async ; let indexs = index ; let ultimo = count" [ngClass]="{mostrar:ultimo,noMostrar:indexs}" >
+                                <li class="text" *ngFor="let equipo of equiposClase2B | async ; let indexs = index ; let ultimo = count" [ngClass]="{mostrar:ultimo,noMostrar:indexs}" >
                                   {{ultimo}}
                                 </li>
                               </ul>
                             </td>
                           </tr>
+
+
+                          <tr>
+                            <td><a routerLink="/riesgoalto">Clase III</a></td>
+                            <td>
+                              <ul>
+                                <li class="text" *ngFor="let equipo of equiposClase3 | async ; let indexs = index ; let ultimo = count" [ngClass]="{mostrar:ultimo,noMostrar:indexs}" >
+                                  {{ultimo}}
+                                </li>
+                              </ul>
+                            </td>
+                          </tr>
+
+
+      
+                         
+
+                        
       
                           <tr>
-                            <td ><a href="../riesgobajo/">Equipos Riesgo Bajo</a></td>
+                            <td ><a routerLink="../dadosbaja">Dados de Baja</a></td>
                             <td>
                               <ul>
-                                <li class="text" *ngFor="let equipo of equipos | async ; let indexs = index ; let ultimo = count" [ngClass]="{mostrar:ultimo,noMostrar:indexs}" >
-                                  {{ultimo}}
-                              
-                                  
-                               
-                                 
-                                 
-                                </li>
-                              </ul>
-                            </td>
-                          </tr>
-      
-                          <tr>
-                            <td ><a href="../dadosbaja/">Equipos Dados de Baja</a></td>
-                            <td>
-                              <ul>
-                                <li class="text" *ngFor="let equipo of equiposDadosBaja | async ; let indexs = index ; let ultimo = count" [ngClass]="{mostrar:ultimo,noMostrar:indexs}" >
+                                <li class="text" *ngFor="let equipo of equiposBaja | async ; let indexs = index ; let ultimo = count" [ngClass]="{mostrar:ultimo,noMostrar:indexs}" >
                                   {{ultimo}}
                                 </li>
                               </ul>
@@ -70,7 +90,7 @@
                        
                         </tbody>
                       </table>
-        
+                      <button class="mt-4" mat-raised-button color="primary" routerLink="/cronograma">Cargar Cronograma de Mantenimiento</button>
                 </div>
         
             </div>

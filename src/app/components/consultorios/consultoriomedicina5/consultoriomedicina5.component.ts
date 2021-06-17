@@ -26,14 +26,11 @@ export class Consultoriomedicina5Component implements OnInit {
      this._equiposServices.getEquiposConsultorioMedicina5().subscribe(data => {
        this.equipos = [];
        data.forEach((element: any)=>{
-         //console.log(element.payload.doc.id);
-         //console.log(element.payload.doc.data());
          this.equipos.push({
            id: element.payload.doc.id,
            ...element.payload.doc.data()
          })
        });
-       console.log(this.equipos);
  
      })
  
@@ -56,8 +53,6 @@ export class Consultoriomedicina5Component implements OnInit {
       })    
     }); 
 this.costoMedicinaGenaral5=  this.equiposMedicina.map((costos)=>costos.costo).reduce((prev,next)=>prev+next,0)
-// this.equipos.map((costos)=>costos.consultorio);
-console.log("medina 5"+this.costoMedicinaGenaral5);
   })}
 
 }

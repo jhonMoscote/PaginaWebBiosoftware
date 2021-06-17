@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <html>
     <head>
 
@@ -11,19 +12,33 @@
             <h5 class="mt-3">Identificacion</h5>
             <form  [formGroup]="createEquipo"   (ngSubmit)="EditarEquipo(id)" class="row g-3">
 
+            
               <div class="col-md-4 ">
                 <label  class="form-label ">Nombre Equipo</label>
-                <input type="text" class="form-control"  formControlName="nombreEquipo">
+                <input type="text" class="form-control"  formControlName="nombreEquipo" >
               </div>
     
               <div class="col-md-4 ">
                 <label  class="form-label ">Identificación del Protocolo</label>
-                <input type="text" class="form-control"  formControlName="alimentacion">
+                <input type="text" class="form-control"  formControlName="identificacionProtocolo">
               </div>
               
               <div class="col-md-4 ">
                 <label  class="form-label ">Ubicación</label>
-                <input type="text" class="form-control"  formControlName="ubicacioncon">
+                <select class="form-control" formControlName="consultorio">
+                  <option></option>
+                  <option>Consultorio Odontologico 1</option>
+                  <option>Consultorio Odontologico 2</option>
+                  <option>Consultorio Odontologico 3</option>
+                  <option>Consultorio Enfermeria 1</option>
+                  <option>Consultorio Enfermeria 2</option>
+                  <option>Consultorio Medicina General 1</option>
+                  <option>Consultorio Medicina General 2</option>
+                  <option>Consultorio Medicina General 3</option>
+                  <option>Consultorio Medicina General 4</option>
+                  <option>Consultorio Medicina General 5</option>
+                  <option>Consultorio Medicina General 6</option>
+                </select>
               </div>
     
     
@@ -53,7 +68,7 @@
     
               <div class="col-md-3">
                 <label  class="form-label mt-2">Periocidad de Tiempo</label>
-                <input type="text" class="form-control" formControlName="periodicidadTiempo">
+                <input type="number" class="form-control" formControlName="periodicidadTiempo">
               </div>
     
               <div class="col-md-3">
@@ -63,7 +78,12 @@
     
               <div class="col-md-3">
                 <label  class="form-label mt-2">Caracteristicas</label>
-                <input type="text" class="form-control" formControlName="ubicacionEquipo">
+                <select class="form-control" formControlName="ubicacionEquipo">
+                  <option></option>
+                  <option>FIJO</option>
+                  <option>MÓVIL</option>
+                </select>
+                
               </div>
     
               <div class="col-md-3 ">
@@ -78,57 +98,94 @@
     
               <div class="col-md-3 ">
                 <label class="form-label ">Fecha Actividad</label>
-                <input type="text" class="form-control" formControlName="fechaActividad" >
+                <input type="date" class="form-control" formControlName="fechaActividad" >
               </div>
     
               <div class="col-md-3 ">
                 <label class="form-label ">Servicio</label>
-                <input type="text" class="form-control" formControlName="servicio" >
+               
+                <select class="form-control" formControlName="servicio">
+                  <option></option>
+                  <option>Medicina General</option>
+                  <option>Enfermeria</option>
+                  <option>Odontologia General</option>
+                  <option>Psicologia</option>
+                  <option>Consulta Prioritaria</option>
+                  <option>Laboratorio Clinico</option>
+                  <option>Servicio Farmaceutico</option>
+                  <option>Toma e interpretacion de Radiografias Odontologicas</option>
+                  <option>Detencion Temprana</option>
+                </select>
+              
+    
+    
               </div>
                 
-
+              
+               
+          
+    
+               
+    
                 <hr style="color: #0056b2;" />
                 <h5>CLASIFICACIÓN TECNO VIGILANCIA</h5>
     
               <div class="col-6">
-                    <label  class="form-label">clasificación Biomédica</label>
-                    <input type="text" class="form-control" formControlName="clasificacionBiomedica" >
+                    <label  class="form-label">CLASIFICACIÓN BIOMÉDICA</label>
+                    <select class="form-control" formControlName="clasificacionBiomedica">
+                      <option></option>
+                      <option>DIAGNOSTICO</option>
+                      <option>PREVENCIÓN</option>
+                      <option>REHABILITACIÓN</option>
+                      <option>ANÁLISIS LAB. CLINICO</option>
+                      <option>TTO Y MTO DE LA VIDA</option>
+                   
+                    </select>
               </div>
+    
+              <div class="col-6">
+                <label  class="form-label">CLASIFICACIÓN POR RIESGO</label>
+                <select class="form-control" formControlName="clasificacionRiesgo">
+                  <option></option>
+                  <option>CLASE I</option>
+                  <option>CLASE II A</option>
+                  <option>CLASE II B</option>
+                  <option>CLASE III</option>
+                  <option>Otro: uso hospitalario/ industrial</option>
+               
+                </select>
+          </div>
+    
     
               <div class="col-6">
                 <label  class="form-label">Fecha Adquisición</label>
-                <input type="text" class="form-control" formControlName="fechaAdquisicion" >
+                <input type="date" class="form-control" formControlName="fechaAdquisicion" >
               </div>
     
-              <div class="col-6">
-                <label  class="form-label">Diagnostico</label>
-                <input type="text" class="form-control" formControlName="diagnostico" >
-              </div>
     
               <div class="col-6">
                 <label  class="form-label">Fecha de Instalación</label>
-                <input type="text" class="form-control" formControlName="fechaInstalacion" >
+                <input type="date" class="form-control" formControlName="fechaInstalacion" >
               </div>
     
-              <div class="col-4">
-                <label  class="form-label">Prevención</label>
-                <input type="text" class="form-control" formControlName="prevencion" >
-              </div>
     
               <div class="col-4">
                 <label  class="form-label">Compra</label>
-                <input type="text" class="form-control" formControlName="compra" >
+                <select class="form-control" formControlName="compra">
+                  <option></option>
+                  <option>X</option>
+                </select>
               </div>
     
               <div class="col-4">
                 <label  class="form-label">Donación</label>
-                <input type="text" class="form-control" formControlName="donacion" >
+                <select class="form-control" formControlName="donacion">
+                  <option></option>
+                  <option>X</option>
+                </select>
               </div>
     
-              <div class="col-4">
-                <label  class="form-label">Rehabilitacion</label>
-                <input type="text" class="form-control" formControlName="rehabilitacion" >
-              </div>
+          
     
               <div class="col-4">
                 <label  class="form-label">Fabricante</label>
@@ -137,17 +194,14 @@
     
               <div class="col-4">
                 <label  class="form-label">Dirección Fabricante</label>
-                <input type="text" class="form-control" formControlName="fabricante" >
+                <input type="text" class="form-control" formControlName="direccionFabricante" >
               </div>
     
-              <div class="col-4">
-                <label  class="form-label">Analisis Laboratorio Clinico</label>
-                <input type="text" class="form-control" formControlName="analisisClinico" >
-              </div>
+          
     
               <div class="col-4">
                 <label  class="form-label">Registro Sanitario</label>
-                <input type="text" class="form-control"  formControlName="registroInvima" >
+                <input type="text" class="form-control" formControlName="registroInvima" >
               </div>
     
               <div class="col-4">
@@ -155,14 +209,14 @@
                 <input type="text" class="form-control" formControlName="vidaUtil" >
               </div>
     
-              <div class="col-6">
-                <label  class="form-label">Tratamiento y Mantenimiento de la Vida</label>
-                <input type="text" class="form-control" formControlName="ttoMto" >
-              </div>
     
               <div class="col-6">
                 <label  class="form-label">Manual de Operación</label>
-                <input type="text" class="form-control" formControlName="manuelOperacion" >
+                <select class="form-control" formControlName="manuelOperacion">
+                  <option></option>
+                  <option>SI</option>
+                  <option>NO</option>
+                </select>
               </div>
     
               
@@ -197,7 +251,13 @@
     
                   <div class="col-md-6">
                     <label  class="form-label">Tecnologia</label>
-                    <input type="text" class="form-control" formControlName="tecnologia" >
+                    <select class="form-control" formControlName="tecnologia">
+                      <option></option>
+                      <option>ELÉCTRICO</option>
+                      <option>MECÁNICA</option>
+                      <option>NEUMÁTICA</option>
+                      <option>HIDRÁULICA</option>
+                    </select>
                   </div>
     
                   <div class="col-md-6">
@@ -217,7 +277,7 @@
     
                   <div class="col-md-4">
                     <label  class="form-label">Rango de Medición</label>
-                    <input type="text" class="form-control"  formControlName="frecuencia">
+                    <input type="text" class="form-control"  formControlName="rangoMedicion">
                   </div>
     
                   <div class="col-md-4">
@@ -264,17 +324,29 @@
     
                   <div class="col-md-4 ">
                     <label  class="form-label mt-2">Limpieza</label>
-                    <input type="text" class="form-control"  formControlName="limpieza">
+                    <select class="form-control" formControlName="limpieza">
+                      <option></option>
+                      <option>Si</option>
+                      <option>No</option>
+                    </select>
                   </div>
     
                   <div class="col-md-4 ">
                     <label  class="form-label mt-2">Esterilización</label>
-                    <input type="text" class="form-control"  formControlName="esterilizacion">
+                    <select class="form-control" formControlName="esterilizacion">
+                      <option></option>
+                      <option>Si</option>
+                      <option>No</option>
+                    </select>
                   </div>
     
                   <div class="col-md-4 ">
                     <label  class="form-label mt-2">Desinfección</label>
-                    <input type="text" class="form-control"  formControlName="desinfeccion">
+                    <select class="form-control" formControlName="desinfeccion">
+                      <option></option>
+                      <option>Si</option>
+                      <option>No</option>
+                    </select>
                   </div>
     
                   <hr style="color: #0056b2;">
@@ -289,13 +361,17 @@
                     <label  class="form-label mt-2">ACCIONES PREVENTIVAS</label>
                     <textarea type="text" class="form-control" formControlName="preventivas"></textarea>
                   </div>
+     
     
                   <br>
                   <br>
                   <br>
-                  <div class="mt-3 mr-3">
-                    <button type="submit" class="btn btn-secondary btn-lg mr-12">Actualizar Equipo</button>
-                    <button type="text"  class="btn btn-secondary btn-lg mr-3" routerLink="/almacen">Regresar</button>
+                  <div class="mt-3 mr-3 col-md-3">
+                    <button type="submit" class="btn btn-primary btn-lg mr-12 mb-4">Actualizar Equipo</button>
+                  
+                </div>
+                <div class="mt-3 mr-3 col-md-3">
+                  <button type="text"  class="btn btn-primary btn-lg mr-3 mb-4" routerLink="/almacen">Regresar</button>
                 </div>
          
                </form>

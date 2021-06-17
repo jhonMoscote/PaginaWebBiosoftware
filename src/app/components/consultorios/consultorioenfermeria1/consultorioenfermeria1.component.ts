@@ -29,18 +29,16 @@ export class Consultorioenfermeria1Component implements OnInit {
      this._equiposServices.getEquiposConsultorioEnfermeria1().subscribe(data => {
        this.equipos = [];
        data.forEach((element: any)=>{
-         //console.log(element.payload.doc.id);
-         //console.log(element.payload.doc.data());
          this.equipos.push({
            id: element.payload.doc.id,
            ...element.payload.doc.data()
          })
        });
-       console.log(this.equipos);
  
      })
  
  }
+ 
 
 
 
@@ -69,8 +67,7 @@ export class Consultorioenfermeria1Component implements OnInit {
         })    
       }); 
   this.costoEnfermeria=  this.equiposEnfermeria.map((costos)=>costos.costo).reduce((prev,next)=>prev+next,0)
-  // this.equipos.map((costos)=>costos.consultorio);
-  console.log("medina 1"+this.costoEnfermeria);
+  
     })}
 
 }

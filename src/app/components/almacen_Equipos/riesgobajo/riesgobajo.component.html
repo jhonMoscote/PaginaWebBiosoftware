@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <html>
   <head>
 
@@ -6,7 +7,7 @@
     <div class= "container mt-4">
       <div class="card">
         <div class="card-body">
-          <span class="h3">Equipos de Riesgo Bajo</span>
+          <span class="h3">EQUIPOS CLASE I</span>
           <table class="table table-striped mt-5 ">
             <thead>
               <tr>
@@ -16,7 +17,10 @@
                 <td>Modelo</td>
                 <td>Serie</td>
                 <td>clasificacion Riesgo</td>
+                <td>Periocidad</td>
+                <td>Caracteristica</td>
                 <td>Ubicacion</td>
+                <td>Vida Util</td>
 
               </tr>
             </thead>
@@ -29,8 +33,10 @@
                 <td>{{equipo.modelo}}</td>
                 <td>{{equipo.serie}} </td>
                 <td>{{equipo.clasificacionRiesgo}}</td>
+                <td>{{equipo.periodicidadTiempo}}</td>
                 <td>{{equipo.ubicacionEquipo}}</td>
-
+                <td>{{equipo.consultorio}}</td>
+                <td>{{equipo.vidaUtil}}</td>
               </tr>
             </tbody>
 

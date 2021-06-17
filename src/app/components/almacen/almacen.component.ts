@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { ToastrService } from 'ngx-toastr';
 import { element } from 'protractor';
 import { Observable } from 'rxjs';
 import { RepuestosService } from 'src/app/services/repuestos.service';
@@ -12,10 +13,7 @@ import { RepuestosService } from 'src/app/services/repuestos.service';
 export class AlmacenComponent implements OnInit {
 
   repuestos: any[]=[];
-  constructor(private _repuestoService: RepuestosService) {
-   //this.repuestos = firestore.collection('repuestos' ).valueChanges();
-        // this.equipos = firestore.coll ection('equipos', ref => ref.where("servicio","==", "HOSPITALIZACION")).valueChanges();
-        
+  constructor(private _repuestoService: RepuestosService,private toastr: ToastrService) {
    } 
   ngOnInit(): void {
     this.getRepuestos()
@@ -24,15 +22,23 @@ export class AlmacenComponent implements OnInit {
     this._repuestoService.getRepuestos().subscribe(data => {
       this.repuestos = [];
       data.forEach((element: any)=>{
-        //console.log(element.payload.doc.id);
-        //console.log(element.payload.doc.data());
         this.repuestos.push({
           id: element.payload.doc.id,
           ...element.payload.doc.data()
         })
       });
-      console.log(this.repuestos);
 
+    })
+  }
+
+  eliminarRepuesto(id: string) {
+    this._repuestoService.eliminarRepuesto(id).then(() => {
+      console.log('Repuesto eliminado con exito');
+      this.toastr.error('El Repuesto fue eliminado con exito', 'Registro eliminado!', {
+        positionClass: 'toast-bottom-right'
+      });
+    }).catch(error => {
+      console.log(error);
     })
   }
 

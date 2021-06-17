@@ -4,6 +4,7 @@ import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as firebase from 'firebase';
 import { ToastrService } from 'ngx-toastr';
+import { Observable } from 'rxjs';
 import { elementAt } from 'rxjs/operators';
 import { EquiposService } from 'src/app/services/equipos.service';
 import { getHeapSnapshot } from 'v8';
@@ -22,15 +23,16 @@ export class HistorialmantenimientoComponent implements OnInit {
   horasCorrectivo: any[]=[];
   numeroFallasPersonal : number;
   numeroFallasEquipos: number;
+  numeroFallasElectrico: number;
   fallas: number;
   numerohorasPreventivo: number =0;
   numerohorasCorrectivo: number=0;
   auxpreventivo: number;
+  idCorrectivo:string;
   constructor(private firestore: AngularFirestore, private router: Router,private aRoute: ActivatedRoute) { 
    
     
     this.id = this.aRoute.snapshot.paramMap.get('id');
-    console.log(this.id);
    
   
   }
@@ -38,7 +40,7 @@ export class HistorialmantenimientoComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.getEquipo(),  this.getFallasPersonal(),this.getFallasEquipos(), this.getNumeroPreventivo(), this. getPreventivo(),this.getNumeroCorrectivo()
+    this.getEquipo(),  this.getFallasPersonal(),this.getFallasEquipos(), this.getNumeroPreventivo(), this. getPreventivo(),this.getNumeroCorrectivo(),this.getFallasElectricas()
    
     
    
@@ -50,7 +52,7 @@ export class HistorialmantenimientoComponent implements OnInit {
 
 
   consultaCorrectivo(){
- return this.firestore.collection("correctivo", ref => ref.where("id" ,"==", this.id )).snapshotChanges();
+ return this.firestore.collection("correctivo", ref => ref.where("ids" ,"==", this.id )).snapshotChanges();
 
   
   }
@@ -61,21 +63,26 @@ export class HistorialmantenimientoComponent implements OnInit {
      }
   conteoPersonal(){
 
-return this.firestore.collection("correctivo", ref => ref.where("id" ,"==", this.id ).where( "criteriofalla" ,"==", "Falla del Personal" )).snapshotChanges();
+return this.firestore.collection("correctivo", ref => ref.where("ids" ,"==", this.id ).where( "criteriofalla" ,"==", "Falla del Personal" )).snapshotChanges();
   
   
      }
   conteoEquipos(){
-      return this.firestore.collection("correctivo", ref => ref.where("id" ,"==", this.id ).where( "criteriofalla" ,"==", "Falla del Equipo" )).snapshotChanges();
+      return this.firestore.collection("correctivo", ref => ref.where("ids" ,"==", this.id ).where( "criteriofalla" ,"==", "Falla del Equipo" )).snapshotChanges();
+ 
+    }
+
+    conteoElectrico(){
+      return this.firestore.collection("correctivo", ref => ref.where("ids" ,"==", this.id ).where( "criteriofalla" ,"==", "Falla Instalación Eléctrica" )).snapshotChanges();
  
     }
 
     conteoHoraPreventivo(){
-      return this.firestore.collection("preventivo", ref => ref.where("id" ,"==", this.id ).where( "tiempoejecucion" ,">=", 0 )).snapshotChanges();
+      return this.firestore.collection("preventivo", ref => ref.where("ids" ,"==", this.id ).where( "tiempoejecucion" ,">=", 0 )).snapshotChanges();
  
     }
     conteoHoraCorrectivo(){
-      return this.firestore.collection("correctivo", ref => ref.where("id" ,"==", this.id).where( "tiempoejecucion" ,">=", 0 )).snapshotChanges();
+      return this.firestore.collection("correctivo", ref => ref.where("ids" ,"==", this.id).where( "tiempoejecucion" ,">=", 0 )).snapshotChanges();
  
     }
   getEquipo(){
@@ -83,34 +90,37 @@ return this.firestore.collection("correctivo", ref => ref.where("id" ,"==", this
     consultaCorrectivo().subscribe(data => {
       this.mantenimientosCorrectivos = [];
       data.forEach((element: any)=>{
-        //console.log(element.payload.doc.id);
-        //console.log(element.payload.doc.data());
         this.mantenimientosCorrectivos.push({
 
           id: element.payload.doc.id,
           ...element.payload.doc.data()
         })
       });
-      console.log("core"+this.mantenimientosCorrectivos);
-
+  
     })
   }
+
+  eliminarUsuario(id: string): Promise<any> {
+    return this.firestore.collection('usuarios').doc(id).delete();
+  }
+  getCorrectivo(id: string): Observable<any>{
+    return this.firestore.collection('equipos').doc(id).snapshotChanges();
+    
+  }
+
+ 
 
   getPreventivo(){
     this.
     consultaPreventivo().subscribe(data => {
       this.mantenimientos = [];
       data.forEach((element: any)=>{
-        //console.log(element.payload.doc.id);
-        //console.log(element.payload.doc.data());
         this.mantenimientos.push({
 
           id: element.payload.doc.id,
           ...element.payload.doc.data()
         })
       });
-      console.log(this.mantenimientos);
-      console.log("preventio")
 
     })
   }
@@ -120,16 +130,13 @@ return this.firestore.collection("correctivo", ref => ref.where("id" ,"==", this
     conteoPersonal().subscribe(data => {
       this.mantenimientoss = [];
       data.forEach((element: any)=>{
-        //console.log(element.payload.doc.id);
-        //console.log(element.payload.doc.data());
         this.mantenimientoss.push({
           
           id: element.payload.doc.id,
           ...element.payload.doc.data()
         })
       });
-      console.log("numero"+this.mantenimientoss.length);
-this.numeroFallasPersonal = this.mantenimientoss.length;
+    this.numeroFallasPersonal = this.mantenimientoss.length;
     })
   }
 
@@ -138,16 +145,28 @@ this.numeroFallasPersonal = this.mantenimientoss.length;
     conteoEquipos().subscribe(data => {
       this.mantenimientoss = [];
       data.forEach((element: any)=>{
-        //console.log(element.payload.doc.id);
-        //console.log(element.payload.doc.data());
         this.mantenimientoss.push({
           
           id: element.payload.doc.id,
           ...element.payload.doc.data()
         })
       });
-      console.log("numero equipos"+this.mantenimientoss.length);
 this.numeroFallasEquipos = this.mantenimientoss.length;
+    })
+  }
+
+  getFallasElectricas(){
+    this.conteoElectrico
+    ().subscribe(data => {
+      this.mantenimientoss = [];
+      data.forEach((element: any)=>{
+        this.mantenimientoss.push({
+          
+          id: element.payload.doc.id,
+          ...element.payload.doc.data()
+        })
+      });
+this.numeroFallasElectrico = this.mantenimientoss.length;
     })
   }
 

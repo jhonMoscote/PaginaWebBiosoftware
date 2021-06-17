@@ -34,7 +34,7 @@ export class Consultorioodontologia2Component implements OnInit {
            ...element.payload.doc.data()
          })
        });
-       console.log(this.equipos);
+     
  
      })
  
@@ -57,8 +57,7 @@ export class Consultorioodontologia2Component implements OnInit {
       })    
     }); 
 this.costoOdontologia2=  this.equiposOdontologia.map((costos)=>costos.costo).reduce((prev,next)=>prev+next,0)
-// this.equipos.map((costos)=>costos.consultorio);
-console.log("costoOdontologia 2"+this.costoOdontologia2);
+
   })}
 
 }

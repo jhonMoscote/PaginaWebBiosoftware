@@ -1,0 +1,47 @@
+<app-navbar></app-navbar>
+<html>
+    <head>
+
+    </head>
+    <body>
+
+        <div class="card">
+            <div class="card"> 
+        <div class="container">
+          <h1 class="text-center mt-3">Fallas Instalaciónes Eléctricas</h1> 
+          <br>
+          <br>
+
+        
+
+          </div>
+          <div class="container">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Asistencia</th>
+                <th scope="col">Falla Reportada</th>
+                <th scope="col">Trabajo Realizado</th>
+                <th scope="col">Fecha Mantenimiento</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="text" *ngFor="let mantenimiento of mantenimientos" >
+               
+                    <td> {{mantenimiento.asistencia}}</td> 
+                    <td> {{mantenimiento.fallareportada}}</td> 
+                    <td> {{mantenimiento.trabajorealizado}}</td> 
+                    <td> {{mantenimiento.fechaCreacion}}</td> 
+                
+              </tr>
+          
+            </tbody>
+          </table>
+        
+          </div>
+        </div>
+      </div>
+    </body>
+</html>
+
+

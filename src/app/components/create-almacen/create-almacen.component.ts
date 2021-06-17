@@ -26,7 +26,7 @@ export class CreateAlmacenComponent implements OnInit {
       nombre:['', Validators.required],
       descripcion:['', Validators.required],
       costo:['', Validators.required],
-      cantidadRestante:['', Validators.required],
+      cantidadRestante:[''],
       cantidadInicial:['', Validators.required],
 
     }
@@ -34,6 +34,7 @@ export class CreateAlmacenComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this. agregarRepuesto()
   }
 
   agregarRepuesto(){
@@ -47,7 +48,7 @@ export class CreateAlmacenComponent implements OnInit {
       descripcion: this.createRepuesto.value.descripcion,
       costo: this.createRepuesto.value.costo,
       cantidadInicial: this.createRepuesto.value.cantidadInicial,
-      cantidadRestante: this.createRepuesto.value.cantidadRestante,
+      cantidadRestante:  this.createRepuesto.value.cantidadInicial,
       fechaCreacion : new Date(),
       fechaActualizacion: new Date()
 
@@ -61,7 +62,7 @@ export class CreateAlmacenComponent implements OnInit {
       console.log(error);
       
     })
-    console.log(repuesto)
+  
   }
   
 

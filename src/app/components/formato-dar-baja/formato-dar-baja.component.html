@@ -1,0 +1,192 @@
+<app-navbar></app-navbar>
+<html>
+    <head>
+
+    </head>
+    <body>
+
+        <div class="card">
+            
+        <div class="container">
+
+          <h1 class="text-center mt-3">Dar Baja de Equipo</h1> 
+         
+
+          
+      
+
+
+          
+           
+            <form class="row g-3" [formGroup] = "createBaja"  (ngSubmit) ="DarBaja()" >
+                <h5 class="mt-4">_</h5>
+
+                <div class="col-md-4">
+                    <label  class="form-label ">FECHA</label>
+                    <input type="date" class="form-control"   formControlName="fecha" >
+                </div>
+
+                <div class="col-md-4">
+                    <label  class="form-label ">HORA</label>
+                    <input type="time" class="form-control"   formControlName="hora" >
+                </div>
+
+                <div class="col-md-4">
+                    <label  class="form-label "> BAJA NUMERÓ</label>
+                    <input type="number" class="form-control"   formControlName="bajanumero" >
+                </div>
+
+           
+            <h5 class="mt-4">SERVICIO Y/O AMBIENTE QUE SOLICITA BAJA</h5>
+
+            <div class="col-md-6">
+              <label  class="form-label ">SERVICIO</label>
+              <input type="text" class="form-control"  value="{{servicio}}" formControlName="servicio" >
+            </div>
+
+
+            <div class="col-md-6">
+              <label  class="form-label ">TELEFONO Y/O EXTENCION </label>
+              <input type="text" class="form-control"  formControlName="telefonoextension" >
+            </div>
+
+            <div class="col-md-6 ">
+              <label  class="form-label ">AMBIENTE</label>
+              <input type="text" class="form-control"   formControlName="ambiente" >
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">PERSONA RESPONSABLE DEL USO </label>
+              <input type="text" class="form-control" formControlName="personaluso" >
+            </div>
+
+            
+  
+
+            <h5 class="mt-4">MOTIVO POR EL QUE SOLICITA LA BAJA </h5>
+
+            <div class="col-md-12">
+                <textarea type="text" class="form-control" formControlName="motivobaja"></textarea>
+              </div>
+
+         
+          
+     
+            <h5 class="mt-4">DATOS DEL EQUIPO O INSTRUMENTO </h5>
+            <div class="col-md-6">
+              <label class="form-label">EQUIPO</label>
+              <input type="text" class="form-control" value="{{nombreEquipo}}"  formControlName="nombreEquipo">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">MARCA</label>
+              <input type="text" class="form-control" value="{{marca}}"  formControlName="marca">
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">MODELO</label>
+                <input type="text" class="form-control"  value= "{{modelo}}"formControlName="modelo">
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">N. DE SERIE</label>
+                <input type="number" class="form-control" value="{{serie}}" formControlName="serie">
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">N. DE ACTIVO</label>
+                <input type="number" class="form-control" value="{{nactivo}}" formControlName="nactivo">
+            </div>
+
+            <h5 class="mt-4">CONDICIONES DE BAJA DEL EQUIPO O INSTRUMENTAL   </h5>
+          
+            <div class="col-md-12">
+                <label class="form-label">REPORTA</label>
+                <textarea type="text" class="form-control" formControlName="reporta"></textarea>
+            </div>
+
+            <h5 class="mt-4">EN CASO DE NO PROCEDER BAJA DE EQUIPO O INSTRUMENTAL  </h5>
+            <div class="col-md-12">
+                <label class="form-label">MOTIVO POR EL QUE NO SE PROCEDE BAJA DE EQUIPO O INSTRUMENTAL</label>
+                <textarea type="text" class="form-control" formControlName="motivobaja"></textarea>
+            </div>
+
+            <div class="col-md-12 mb-4">
+                <label  class="form-label mt-2">OBSERVACIONES</label>
+                <textarea type="text" class="form-control" formControlName="observaciones"></textarea>
+              </div>
+
+             
+            <div class="col-md-3 mt-4 ">
+            
+                <input type="password" class="form-control "  formControlName="firmacontrol"  [(ngModel)]="contraControl" (keyup)="validarControl()" required>
+                <div *ngIf="condicionInterno == false">
+                  <span class="input-group-text" id="basic-addon1"><P style="color: red;">Contraseña Incorrecta</P></span>
+                
+                </div>
+                <div *ngIf="condicionInterno == true">
+                  <span class="input-group-text" id="basic-addon1"><P style="color: green;">Contraseña Correcta</P></span>
+                
+                </div>
+              
+                <label class="form-label" >NOMBRE / FIRMA CONTROL INTERNO</label>
+                
+                 
+                 
+
+                
+                
+            </div>
+            
+
+            <div class="col-md-3 mt-4">
+                
+                <input type="password" class="form-control"  formControlName="firmabiomedico" [(ngModel)]="contraBiomedico" (keyup)="validarBiomedico()" required >
+               
+
+                <div *ngIf="condicionBiomedico == false">
+                  <span class="input-group-text" id="basic-addon1"><P style="color: red;">Contraseña Incorrecta</P></span>
+                
+                </div>
+                <div *ngIf="condicionBiomedico == true">
+                  <span class="input-group-text" id="basic-addon1"><P style="color: green;">Contraseña Correcta</P></span>
+                
+                </div>
+                <label class="form-label">NOMBRE Y FIRMA BIOMÉDICO </label>
+            </div>
+            <div class="col-md-3 mt-4">
+                
+                <input type="password" class="form-control"  formControlName="responsablearea" [(ngModel)]="contraArea" (keyup)="validarArea()" required>
+                <div *ngIf="condicionArea == false">
+                  <span class="input-group-text" id="basic-addon1"><P style="color: red;">Contraseña Incorrecta</P></span>
+                
+                </div>
+                <div *ngIf="condicionArea == true">
+                  <span class="input-group-text" id="basic-addon1"><P style="color: green;">Contraseña Correcta</P></span>
+                
+                </div>
+                <label class="form-label">RESPONSABLE DE AREA </label>
+            </div>
+            <div class="col-md-3 mt-4">
+                
+                <input type="password" class="form-control"  formControlName="almaceninventario" [(ngModel)]="contraInventario" (keyup)="validarInventario()" required >
+                <div *ngIf="condicionInventario == false">
+                  <span class="input-group-text" id="basic-addon1"><P style="color: red;">Contraseña Incorrecta</P></span>
+                
+                </div>
+                <div *ngIf="condicionInventario == true">
+                  <span class="input-group-text" id="basic-addon1"><P style="color: green;">Contraseña Correcta</P></span>
+                
+                </div>
+                <label class="form-label">ALMACÉN E INVENTARIO </label>
+            </div>
+
+        
+       
+
+            
+            <button class="mt-4 mb-4" mat-raised-button color="primary"  [disabled]="createBaja.invalid" type="submit">Dar Baja</button>
+
+
+           
+          </form>
+          </div>
+        </div>
+    </body>
+</html>

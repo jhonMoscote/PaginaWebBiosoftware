@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <html>
     <head>
 
@@ -7,7 +8,7 @@
         <div class="card">
             <div class="card"> 
         <div class="container">
-          <h3 class="text-center mt-3">Historial Mantenimiento Preventivo</h3> 
+          <h1 class="text-center mt-3">Historial Mantenimiento Preventivo</h1> 
           <br>
           <br>
 
@@ -68,7 +69,7 @@
             <tbody>
               <tr *ngFor="let mantenimiento of mantenimientos">
                
-                    <td> {{mantenimiento.asistencia}}</td> 
+                    <td><a [routerLink]="['/reportepreventivo/',mantenimiento.id]">{{mantenimiento.asistencia}}</a></td> 
                     <td>{{mantenimiento.tiempofuera}}</td>
                     <td> {{mantenimiento.fechaCreacion }}</td> 
                 
@@ -80,6 +81,20 @@
           </div>
         </div>
       </div>
+      <div class="container mr-4 text-center">
+          
+        <div class="row">
+            <div class="col-6">
+                
+              
+                  <img src="{{url}}">
+                
+                    
+               
+            </div>
+      
+        </div>
+        </div>
     </body>
 </html>
 

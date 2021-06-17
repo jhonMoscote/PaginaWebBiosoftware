@@ -12,8 +12,15 @@ export class PorcentajepreventivosComponent implements OnInit {
   mantenimientos :any[]=[];
   numeropreventivos:number ;
   numero:number;
+
   mantenimientoss: any[]=[];
   numeronorealizados: number;
+  mantenimientoNoRealizados:number;
+  porcentajeEficacia: number;
+  porcentajeFallo:number;
+  valor:number;
+  periocidad: any[]=[];
+  pericidadNumeros: any[]=[];
   constructor(private firestore: AngularFirestore) { }
 
   ngOnInit(): void {
@@ -21,7 +28,7 @@ export class PorcentajepreventivosComponent implements OnInit {
   }
 
   getEquipos(){
-    return this.firestore.collection('equipos', ref=> ref.where("periodicidadTiempo", ">=", 0)).snapshotChanges();
+    return this.firestore.collection('equipos', ref=> ref.where("periodicidadTiempo", "!=", null)).snapshotChanges();
   }
   consultaPreventivo(){
     return this.firestore.collection("preventivo", ref => ref.where("asistencia" ,"==", "Preventivo" )).snapshotChanges();
@@ -38,7 +45,6 @@ export class PorcentajepreventivosComponent implements OnInit {
           ...element.payload.doc.data()
         })
       });
-      console.log(this.equipos);
 
     })
   }
@@ -51,8 +57,10 @@ export class PorcentajepreventivosComponent implements OnInit {
           ...element.payload.doc.data()
         })
       });
-     console.log("dd"+this.mantenimientos)
-
+     this.mantenimientoNoRealizados =   this.numeropreventivos - this.numeronorealizados;
+      this.porcentajeEficacia = this.numeronorealizados / this.numeropreventivos *100;
+      this.porcentajeFallo = 100-(this.numeronorealizados / this.numeropreventivos *100);
+  return this.mantenimientoNoRealizados, this.porcentajeEficacia,  this.porcentajeFallo
     })
   }
 
@@ -68,9 +76,38 @@ export class PorcentajepreventivosComponent implements OnInit {
          ...element.payload.doc.data()
         })    
       }); 
-  this.numeropreventivos=  this.programadospreventivos.map((horas)=>horas.periodicidadTiempo).reduce((prev,next)=>prev+next,0)
+      console.log(this.programadospreventivos);
+     this.periocidad =  this.programadospreventivos.map((horas)=>horas.periodicidadTiempo)
+      console.log(this.periocidad)
+      for(let i=0; i < this.periocidad.length;i++){
+        if(this.periocidad[i]=="Trismetral"){
+          this.valor= 4;
+          
+        }else
+        if(this.periocidad[i]=="Bimestral"){
+          this.valor= 6;
+        }
+        else
+        if(this.periocidad[i]=="Semestral"){
+          this.valor= 2;
+        }
+        else
+        if(this.periocidad[i]=="Anual"){
+          this.valor= 1;
+        }
+        this.pericidadNumeros[i] = this.valor;
+        
+       
+      }
 
-  console.log("dd"+this.numeropreventivos.toString());
+      this.numeropreventivos =     this.pericidadNumeros.reduce((prev,next)=>prev+next,0)
+    
+     
+      console.log("valor",this.valor)
+      //this.numeropreventivos=  this.programadospreventivos.map((horas)=>horas.periodicidadTiempo).reduce((prev,next)=>prev+next,0)
+      console.log(this.pericidadNumeros)
+    //   return   this.numeropreventivos
+  
     })}
 
     getFallasPersonal(){
@@ -78,18 +115,22 @@ export class PorcentajepreventivosComponent implements OnInit {
       consultaPreventivo().subscribe(data => {
         this.mantenimientoss = [];
         data.forEach((element: any)=>{
-          //console.log(element.payload.doc.id);
-          //console.log(element.payload.doc.data());
           this.mantenimientoss.push({
             
             id: element.payload.doc.id,
             ...element.payload.doc.data()
           })
         });
-        console.log("numero"+this.mantenimientoss.length);
   this.numeronorealizados = this.mantenimientoss.length;
+  this.mantenimientoNoRealizados =   this.numeropreventivos - this.numeronorealizados,
+  this.porcentajeEficacia = ((this.numeronorealizados / this.numeropreventivos) *100),
+  this.porcentajeFallo = 100-(this.numeronorealizados / this.numeropreventivos *100)
+      return this.numeronorealizados,this.mantenimientoNoRealizados,this.porcentajeEficacia,this.porcentajeFallo
+
       })
     }
+
+   
 
 
 

@@ -1,28 +1,39 @@
-<html>
-    <head>
+<app-navbar></app-navbar>
 
-    </head>
-    <body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Equipo</title>
+</head>
+<body>
+   
         <div class="container  mt-4">
-            <div class="card">
+            <div class="card " >
                 <div class="card-body">
                     <span class="h3">Equipos</span>
-                    <br>
-                    <br>
-                    <div class="row g-3">
+                       
+                        
+                        <i class="bi bi-upc-scan  mr-4 float-right"  [routerLink]= "['/codigoqr', id]" >   <img src="assets/qr-code.png" class="mr-4"></i>
+                
+                    <div class="row g-3 mt-4">
 
-            
+                       
                             <div class="col-4">
                                 <div>
-                                   
+                               
+
                                   
-                                    <a class="btn btn-primary btn-lg custom" [routerLink]= "['/menuhojadevida', id]" role="button">Hoja de Vida</a>
+                                  
+                                    <a class="btn btn-primary btn-lg custom"  [routerLink]= "['/menuhojadevida', id] " role="button">Hoja de Vida</a>
                                 </div>
                                 <div>
-                                    <a class="btn btn-primary mt-3 btn-lg custom" [routerLink]= "['/mantenimientocorrectivo', id]" role="button">Mantenimiento Correctivo</a>
+                                    <a class="btn btn-primary mt-3 btn-lg custom"  [routerLink]= "['/mantenimientocorrectivo', id]" role="button">Mantenimiento Correctivo</a>
                                 </div>
                                 <div>
-                                    <a class="btn btn-primary  mt-3  btn-lg custom" [routerLink]= "['/mantenimientopreventivo', id]" href="../mantenimientopreventivo" role="button">Mantenimiento Preventivo</a>
+                                    <a class="btn btn-primary  mt-3  btn-lg custom"  [routerLink]= "['/mantenimientopreventivo', id]" href="../mantenimientopreventivo" role="button">Mantenimiento Preventivo</a>
                                 </div>
                                
                             </div>
@@ -31,11 +42,11 @@
                           
                             <div class="col-4">
                                 <div>
-                                    <a class="btn btn-primary btn-lg custom" href="../certificacionmetrologica/" role="button">Certificacion Metrologica</a>
+                                    <a class="btn btn-primary btn-lg custom" [routerLink]= "['/certificacionmetrologica',id]"  role="button">Certificacion Metrologica</a>
                                    
                                 </div>
                                 <div>
-                                    <a class="btn btn-primary mt-3 btn-lg custom" href="../protocololimpieza/" role="button">Protocolo Limpieza</a>
+                                    <a class="btn btn-primary mt-3 btn-lg custom" [routerLink]= "['/protocololimpieza', id]" role="button">Protocolo Limpieza</a>
                                   
                                 </div>
                             
@@ -53,7 +64,7 @@
                                 </div>
                                 <div>
                                   
-                                    <a class="btn btn-primary mt-3 btn-lg custom" href="#" role="button">Dar Baja</a>
+                                    <a class="btn btn-primary mt-3 btn-lg custom" [routerLink]= "['/darbajaequipo', id]" role="button">Dar Baja</a>
                                     
                                 </div>
                                 <div>
@@ -62,6 +73,8 @@
                                 </div>
                            
                             </div>
+
+                            
                             
 
                     </div>
@@ -73,5 +86,8 @@
         
         </div>
     </body>
+    
+
 </html>
+
  

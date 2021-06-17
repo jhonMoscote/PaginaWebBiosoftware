@@ -1,0 +1,49 @@
+<app-navbar></app-navbar>
+<html>
+  <head>
+
+  </head>
+  <body>
+    <div class= "container mt-4">
+      <div class="card">
+        <div class="card-body">
+          <span class="h3">EQUIPOS CLASE II A</span>
+          <table class="table table-striped mt-5 ">
+            <thead>
+              <tr>
+                <td>Nombre Equipo</td>
+                <td>Servicio</td>
+                <td>Marca</td>
+                <td>Modelo</td>
+                <td>Serie</td>
+                <td>clasificacion Riesgo</td>
+                <td>Periocidad</td>
+                <td>Caracteristica</td>
+                <td>Ubicacion</td>
+                <td>Vida Util</td>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="text" *ngFor="let equipo of equipos">
+              
+                <td><a [routerLink]= "['/equipomantenimiento/', equipo.id]"> {{equipo.nombreEquipo}}</a></td>
+                <td>{{equipo.servicio}}</td>
+                <td>{{equipo.marca}}</td>
+                <td>{{equipo.modelo}}</td>
+                <td>{{equipo.serie}} </td>
+                <td>{{equipo.clasificacionRiesgo}}</td>
+                <td>{{equipo.periodicidadTiempo}}</td>
+                <td>{{equipo.ubicacionEquipo}}</td>
+                <td>{{equipo.consultorio}}</td>
+                <td>{{equipo.vidaUtil}}</td>
+
+              </tr>
+            </tbody>
+
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

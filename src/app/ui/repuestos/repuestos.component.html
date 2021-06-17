@@ -1,0 +1,63 @@
+<div class="repuestos-contenedor">
+  <button mat-raised-button color="primary" (click)="addItem($event)">
+    <mat-icon>add</mat-icon>
+    Agregar Repuesto
+  </button>
+  <mat-card
+    class="respuestos-head-card"
+    fxLayoutGap="20px"
+    fxLayout="row"
+    fxLayoutAlign="space-between center"
+  >
+    <span fxFlex="20"> Referencia </span>
+    <span fxFlex="20"> Cantidad </span>
+    <span fxFlex="20"> Descripción </span>
+    <span fxFlex="20"> Cantidad Disponible </span>
+    <span fxFlex="20"> Costo </span>
+  </mat-card>
+  <form [formGroup]="repuestosForm">
+    <div formArrayName="respuestosArray">
+      <div></div>
+      <mat-card
+        class="respuestos-card"
+        *ngFor="
+          let repuesto of repuestosSeleccionadosService.repuestosSeleccionados;
+          let i = index
+        "
+        [formGroupName]="i"
+        fxLayoutGap="20px"
+        fxLayout="row"
+        fxLayoutAlign="space-between"
+      >
+        <mat-form-field fxFlex="20" appearance="outline">
+          <mat-label>Referencia</mat-label>
+          <input
+            matInput
+            [matAutocomplete]="auto"
+            formControlName="referencia"
+          />
+          <mat-autocomplete
+            autoActiveFirstOption
+            #auto="matAutocomplete"
+            (optionSelected)="seleccionarRepuesto(i, $event)"
+            [displayWith]="displayFn"
+          >
+            <mat-option
+              *ngFor="let option of respuestosFiltrados$ | async"
+              [value]="option"
+            >
+              {{ option.nombre }}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+        <mat-form-field fxFlex="20" appearance="outline">
+          <mat-label>Cantidad</mat-label>
+          <input matInput type="number" formControlName="cantidad" (blur)="onBlurCantidad($event.target.value, i)"/>
+        </mat-form-field>
+        <span fxFlex="20"> {{ repuesto.descripcion }} </span>
+        <span fxFlex="20"> {{ repuesto.cantidadRestante }} </span>
+        <span fxFlex="20"> {{ repuesto.costo * repuesto.cantidad}} </span>
+      </mat-card>
+    </div>
+  </form>
+</div>

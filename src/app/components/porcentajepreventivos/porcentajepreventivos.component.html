@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <html>
     <head>
 
@@ -38,17 +39,17 @@
                     </tr>
                     <tr>
                       <td >Número de Mantenimientos Preventivos No Realizados</td>
-                      <td class="text-center">{{numeropreventivos - numeronorealizados}}</td>
+                      <td class="text-center">{{mantenimientoNoRealizados}}</td>
                     </tr>
 
                     <tr>
                       <td >Porcentaje (%) Eficacia</td>
-                      <td class="text-center">{{numeronorealizados / numeropreventivos *100 + " % "}}</td>
+                      <td class="text-center">{{porcentajeEficacia}} <p>%</p></td>
                     </tr>
 
                     <tr>
                       <td >Porcentaje (%) Fallo</td>
-                      <td class="text-center">{{100-(numeronorealizados / numeropreventivos *100) + " % " }}</td>
+                      <td class="text-center">{{porcentajeFallo}} <p>%</p></td>
                     </tr>
                   
                 

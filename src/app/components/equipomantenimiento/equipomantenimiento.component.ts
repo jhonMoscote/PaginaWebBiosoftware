@@ -46,8 +46,6 @@ export class EquipomantenimientoComponent implements OnInit {
   esVer(){
     if(this.id !== null){
       this._servicesEquipo.getEquipo(this.id).subscribe(data =>{
-      console.log(data.payload.data()['codigoecr1']);
-      console.log(data.payload.data()['nombreEquipo']);
       this.clasificacion= data.payload.data()['clasificacionRiesgo'];
       if(this.clasificacion == 'Dado de Baja'){
         this.estado = 'Fuera de Servicio';

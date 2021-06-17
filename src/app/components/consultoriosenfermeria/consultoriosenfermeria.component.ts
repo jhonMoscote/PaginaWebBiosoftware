@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { EquiposService } from 'src/app/services/equipos.service';
 
 @Component({
   selector: 'app-consultoriosenfermeria',
@@ -12,11 +13,13 @@ export class ConsultoriosenfermeriaComponent implements OnInit {
   equiposEnfermeria: any[]=[];
   costoEnfermeria: number;
   costoEnfermeria2: number;
-
-  constructor(private firestore: AngularFirestore) { }
+  equipos: any[]=[];
+  numeroEnfermeria1: number;
+  numeroEnfermeria2: number;
+  constructor(private firestore: AngularFirestore, private _servicesEquipos:EquiposService) { }
 
   ngOnInit(): void {
-    this.getCostosEnfermeria1(),this.getCostosEnfermeria2()
+    this.getCostosEnfermeria1(),this.getCostosEnfermeria2(),this. numerodeEnfermeria1(),this. numerodeEnfermeria2()
   }
 
 
@@ -32,6 +35,37 @@ export class ConsultoriosenfermeriaComponent implements OnInit {
    
    }
 
+   
+   numerodeEnfermeria1(){
+
+    this._servicesEquipos.getEquiposConsultorioEnfermeria1().subscribe(data =>{
+      this.equipos = [];
+      data.forEach((element: any)=>{
+      
+        this.equipos.push({
+    
+          servicio:element.payload.doc.servicio,
+         ...element.payload.doc.data()
+        })    
+      }); 
+      this.numeroEnfermeria1 = this.equipos.length;
+    })
+    }
+    numerodeEnfermeria2(){
+
+      this._servicesEquipos.getEquiposConsultorioEnfermeria2().subscribe(data =>{
+        this.equipos = [];
+        data.forEach((element: any)=>{
+        
+          this.equipos.push({
+      
+            servicio:element.payload.doc.servicio,
+           ...element.payload.doc.data()
+          })    
+        }); 
+        this.numeroEnfermeria2 = this.equipos.length;
+      })
+      }
 
 
 
@@ -47,8 +81,6 @@ export class ConsultoriosenfermeriaComponent implements OnInit {
         })    
       }); 
   this.costoEnfermeria=  this.equiposEnfermeria.map((costos)=>costos.costo).reduce((prev,next)=>prev+next,0)
-  // this.equipos.map((costos)=>costos.consultorio);
-  console.log("medina 1"+this.costoEnfermeria);
     })}
 
     getCostosEnfermeria2(){
@@ -63,8 +95,6 @@ export class ConsultoriosenfermeriaComponent implements OnInit {
           })    
         }); 
     this.costoEnfermeria2=  this.equiposEnfermeria.map((costos)=>costos.costo).reduce((prev,next)=>prev+next,0)
-    // this.equipos.map((costos)=>costos.consultorio);
-    console.log("medina 2"+this.costoEnfermeria2);
       })}
 
     

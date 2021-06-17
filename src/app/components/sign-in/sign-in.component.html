@@ -1,0 +1,51 @@
+<nav class="navbar navbar-primary bg-primary">
+  <h1 >BIOSOFTWARE</h1>
+  <img src="assets/logo.png">
+  <!-- Navbar content -->
+</nav>
+<div class= "container mt-4">
+
+
+<div class="table">
+    <div class="table-cell">
+  
+        <div class="auth-block">
+          <h3>Iniciar Sesion</h3>
+              <div class="form-group">
+              <input type="text" class="form-control v" placeholder="Nombre de usuario" #userName required>
+              </div>
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          
+              <div class="form-group">
+                <input type="password" class="form-control" placeholder="Password" #userPassword required>
+              </div>
+    
+          <!-- Calling SignIn Api from AuthService -->
+              <div class="form-group">
+                <input type="button" class="btn btn-primary" value="Iniciar Sesion" (click)="AuthService.SignIn(userName.value, userPassword.value)">
+              </div>
+    
+      
+  
+        <!-- Calling GoogleAuth Api from AuthService -->
+        <div class="form-group">
+          <button type="button" class=" btn btn-openid btn-primary" (click)="AuthService.GoogleAuth()">
+            <i class="fab fa-google-plus-g"></i>
+            Log in with Google
+          </button>
+   
+  
+        <div class="forgotPassword">
+          <span routerLink="/forgot-password">Forgot Password?</span>
+        </div>
+          </div>
+    
+      </div>
+  
+      <div class="redirectToLogin">
+        <span>Don't have an account?<a class="redirect" routerLink="/register-user"> Sign Up</a></span>
+      </div>
+  
+    </div>
+  </div>
+</div>

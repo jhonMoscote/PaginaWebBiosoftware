@@ -1,0 +1,406 @@
+<app-navbar></app-navbar>
+<html>
+    <head>
+
+    </head>
+  
+ 
+    <body>
+
+        <div class="card">
+            
+        <div class="container">
+          <h1 class="text-center mt-3">Registrar Equipo</h1> 
+            <h5 class="mt-3">DATOS GENERALES</h5>
+        <form [formGroup] = "createEquipo"  (ngSubmit) ="creaeEquipo()" class="row g-3">
+
+          <div class="col-md-4 ">
+            <label  class="form-label is-required">Nombre Equipo</label>
+            <input type="text" class="form-control" id="nombreEquipo" name="nombreEquipo" formControlName="nombreEquipo" required  >
+       
+          </div>
+         
+
+  
+
+          <div class="col-md-4 ">
+            <label  class="form-label ">Identificación del Protocolo</label>
+            <input type="text" class="form-control"  formControlName="identificacionProtocolo">
+          </div>
+         
+          <div class="col-md-4 ">
+            <label  class="form-label  is-required">Ubicación</label>
+            <select class="form-control" formControlName="consultorio" placeholder="Seleccionar El servicio"  required>
+              <option disabled selected>Por Favor Seleccione un servicio</option>
+              
+           
+              <option *ngIf="servicio == 'Medicina General'">Consultorio Medicina General 1</option>
+              <option *ngIf="servicio == 'Medicina General'">Consultorio Medicina General 2</option>
+              <option *ngIf="servicio == 'Medicina General'">Consultorio Medicina General 3</option>
+              <option *ngIf="servicio == 'Medicina General'">Consultorio Medicina General 4</option>
+              <option *ngIf="servicio == 'Medicina General'">Consultorio Medicina General 5</option>
+              <option *ngIf="servicio == 'Medicina General'">Consultorio Medicina General 6</option>
+    
+           
+              <option *ngIf="servicio == 'Enfermeria'">Consultorio Enfermeria 1</option>
+              <option *ngIf="servicio == 'Enfermeria'">Consultorio Enfermeria 2</option>
+
+              <option *ngIf="servicio == 'Odontologia General'">Consultorio Odontologico 1</option>
+              <option *ngIf="servicio == 'Odontologia General'">Consultorio Odontologico 2</option>
+              <option *ngIf="servicio == 'Odontologia General'">Consultorio Odontologico 3</option>
+
+              <option *ngIf="servicio == 'Psicologia'">Consultorio Psicologia</option>
+
+              <option *ngIf="servicio == 'Consulta Prioritaria'">Consultorio Consulta Prioritaria</option>
+
+              <option *ngIf="servicio == 'Laboratorio Clinico'">Consultorio Laboratorio Clinico</option>
+
+              <option *ngIf="servicio == 'Servicio Farmaceutico'">Consultorio Servicio Farmaceutico</option>
+
+              <option *ngIf="servicio == 'Toma e interpretacion de Radiografias Odontologicas'">Consultorio Toma E Interpretacion</option>
+
+              <option *ngIf="servicio == 'Detencion Temprana'">Consultorio Detencion Temprana</option>
+              
+
+            
+            </select>
+          </div>
+
+
+          <div class="col-md-3 ">
+            <label  class="form-label mt-2 is-required">Marca</label>
+            <input type="text" class="form-control" formControlName="marca" required>
+          </div>
+
+          <div class="col-md-3">
+            <label  class="form-label mt-2 is-required">Modelo</label>
+            <input type="text"class="form-control" formControlName="modelo" required>
+          </div>
+
+          <div class="col-md-3">
+            <label  class="form-label mt-2 is-required">Serie</label>
+            <input type="text" class="form-control" formControlName="serie" required>
+          </div>
+          <div class="col-md-3">
+            <label  class="form-label mt-2">Nº / Activo</label>
+            <input type="text" class="form-control" formControlName="nactivo">
+          </div>
+
+          <div class="col-md-3">
+            <label  class="form-label mt-2">Propietario</label>
+            <input type="text" class="form-control" formControlName="propietario">
+          </div>
+
+          <div class="col-md-3">
+            <label  class="form-label mt-2 is-required">Periocidad</label>
+            <select type="text" class="form-control" formControlName="periodicidadTiempo" required>
+              <option></option>
+              <option>Trismetral</option>
+              <option>Bimestral</option>
+              <option>Semestral</option>
+              <option>Anual</option>
+            </select>
+          </div>
+
+          <div class="col-md-3">
+            <label  class="form-label mt-2">Código Equipo</label>
+            <input type="text" class="form-control" formControlName="codigo">
+          </div>
+
+          <div class="col-md-3">
+            <label  class="form-label mt-2 is-required">Caracteristicas</label>
+            <select class="form-control" formControlName="ubicacionEquipo" required>
+              <option></option>
+              <option>FIJO</option>
+              <option>MÓVIL</option>
+            </select>
+            
+          </div>
+
+          <div class="col-md-3 ">
+              <label class="form-label ">Codigo ECR1</label>
+              <input type="text" class="form-control" formControlName="codigoecr" >
+          </div>
+
+          <div class="col-md-3 ">
+            <label class="form-label ">Estimado</label>
+            <input type="text" class="form-control" formControlName="estimado" >
+          </div>
+
+          <div class="col-md-3 ">
+            <label class="form-label is-required ">Fecha Actividad</label>
+            <input type="date" class="form-control" formControlName="fechaActividad" >
+          </div>
+          <div class="col-md-3 ">
+            <label class="form-label is-required ">Servicio</label>
+           
+            <select class="form-control" formControlName="servicio" [(ngModel)]= "servicio" required>
+              <option></option>
+              <option value="Medicina General">Medicina General</option>
+              <option value="Enfermeria">Enfermeria</option>
+              <option value="Odontologia General">Odontologia General</option>
+              <option value="Psicologia">Psicologia</option>
+              <option value="Consulta Prioritaria">Consulta Prioritaria</option>
+              <option value="Laboratorio Clinico">Laboratorio Clinico</option>
+              <option value="Servicio Farmaceutico">Servicio Farmaceutico</option>
+              <option value="Toma e interpretacion de Radiografias Odontologicas">Toma e interpretacion de Radiografias Odontologicas</option>
+              <option value="Detencion Temprana">Detencion Temprana</option>
+            </select>
+          
+
+
+          </div>
+          
+            
+          
+           
+      
+
+           
+
+            <hr style="color: #0056b2;" />
+            <h5>CLASIFICACIÓN TECNO VIGILANCIA</h5>
+
+          <div class="col-6">
+                <label  class="form-label is-required">CLASIFICACIÓN BIOMÉDICA</label>
+                <select class="form-control" formControlName="clasificacionBiomedica" required>
+                  <option></option>
+                  <option>DIAGNOSTICO</option>
+                  <option>PREVENCIÓN</option>
+                  <option>REHABILITACIÓN</option>
+                  <option>ANÁLISIS LAB. CLINICO</option>
+                  <option>TTO Y MTO DE LA VIDA</option>
+               
+                </select>
+          </div>
+
+          <div class="col-6">
+            <label  class="form-label is-required">CLASIFICACIÓN POR RIESGO</label>
+            <select class="form-control" formControlName="clasificacionRiesgo" required>
+              <option></option>
+              <option>CLASE I</option>
+              <option>CLASE II A</option>
+              <option>CLASE II B</option>
+              <option>CLASE III</option>
+              <option>Otro: uso hospitalario/ industrial</option>
+           
+            </select>
+      </div>
+
+
+          <div class="col-6">
+            <label  class="form-label">Fecha Adquisición</label>
+            <input type="date" class="form-control" formControlName="fechaAdquisicion" >
+          </div>
+
+
+          <div class="col-6">
+            <label  class="form-label">Fecha de Instalación</label>
+            <input type="date" class="form-control" formControlName="fechaInstalacion" >
+          </div>
+
+
+          <div class="col-4">
+            <label  class="form-label">Compra</label>
+            <select class="form-control" formControlName="compra">
+              <option></option>
+              <option>X</option>
+            </select>
+          </div>
+
+          <div class="col-4">
+            <label  class="form-label">Donación</label>
+            <select class="form-control" formControlName="donacion">
+              <option></option>
+              <option>X</option>
+            </select>
+          </div>
+
+      
+
+          <div class="col-4">
+            <label  class="form-label">Fabricante</label>
+            <input type="text" class="form-control" formControlName="fabricante" >
+          </div>
+
+          <div class="col-4">
+            <label  class="form-label">Dirección Fabricante</label>
+            <input type="text" class="form-control" formControlName="direccionFabricante" >
+          </div>
+
+      
+
+          <div class="col-4">
+            <label  class="form-label">Registro Sanitario</label>
+            <input type="text" class="form-control" formControlName="registroInvima" >
+          </div>
+
+          <div class="col-4">
+            <label  class="form-label">Vida Util</label>
+            <input type="text" class="form-control" formControlName="vidaUtil" >
+          </div>
+
+
+          <div class="col-6">
+            <label  class="form-label">Manual de Operación</label>
+            <select class="form-control" formControlName="manuelOperacion">
+              <option></option>
+              <option>SI</option>
+              <option>NO</option>
+            </select>
+          </div>
+
+          
+
+          
+
+            
+              <hr style="color: #0056b2;" />
+              <h5>DESCRIPCIÓN DEL EQUIPO</h5>
+
+              <div class="col-md-12">
+                <label  class="form-label">Funciones que Cumple - Proceso que Realiza</label>
+                <textarea  type="text" name="servicio" class="form-control" formControlName="funciones"></textarea>
+               
+              </div>
+
+              <div class="col-md-12">
+                <label  class="form-label">Sugerencias de Uso y de Manipulación</label>
+                <textarea  type="text" name="servicio" class="form-control" formControlName="sugerencia"></textarea>
+              </div>
+
+              <div class="col-md-12">
+                <label  class="form-label">Manual Procedimientos que Garanticen la Gestion de Riesgo</label>
+                <textarea  type="text" name="servicio" class="form-control" formControlName="manual"></textarea>
+              </div>
+
+
+              <hr style="color: #0056b2;" />
+              <h5>DATOS TECNICOS</h5>
+
+
+
+              <div class="col-md-6">
+                <label  class="form-label">Tecnologia</label>
+                <select class="form-control" formControlName="tecnologia">
+                  <option></option>
+                  <option>ELÉCTRICO</option>
+                  <option>MECÁNICA</option>
+                  <option>NEUMÁTICA</option>
+                  <option>HIDRÁULICA</option>
+                </select>
+              </div>
+
+              <div class="col-md-6">
+                <label  class="form-label">Alimentacion</label>
+                <input type="text" class="form-control"  formControlName="alimentacion">
+              </div>
+
+              <div class="col-md-4">
+                <label  class="form-label">Voltaje</label>
+                <input type="text" class="form-control"  formControlName="voltaje">
+              </div>
+
+              <div class="col-md-4">
+                <label  class="form-label">Frecuecia</label>
+                <input type="text" class="form-control"  formControlName="frecuencia">
+              </div>
+
+              <div class="col-md-4">
+                <label  class="form-label">Rango de Medición</label>
+                <input type="text" class="form-control"  formControlName="rangoMedicion">
+              </div>
+
+              <div class="col-md-4">
+                <label  class="form-label">Corriente</label>
+                <input type="text" class="form-control"  formControlName="corriente">
+              </div>
+
+              <div class="col-md-4">
+                <label  class="form-label">Potencia</label>
+                <input type="text" class="form-control"  formControlName="potencia">
+              </div>
+
+              <div class="col-md-4">
+                <label  class="form-label">Variables</label>
+                <input type="text" class="form-control"  formControlName="variable">
+              </div>
+
+              <div class="col-md-4">
+                <label  class="form-label">Temperatura Ambiente</label>
+                <input type="text" class="form-control"  formControlName="temperaturaAmbiente">
+              </div>
+
+              <div class="col-md-4">
+                <label  class="form-label">Peso</label>
+                <input type="text" class="form-control"  formControlName="peso">
+              </div>
+
+              <div class="col-md-4">
+                <label  class="form-label">Humedad</label>
+                <input type="text" class="form-control"  formControlName="humedad">
+              </div>
+
+            <hr style="color: #0056b2;">
+            <h5> COMPONENTES Y/O ACCESORIOS</h5>
+
+              <div class="col-md-12">
+                <label  class="form-label">Accesorios</label>
+                <textarea type="text" class="form-control" formControlName="accesorios"></textarea>
+              </div>
+
+              <hr style="color: #0056b2;">
+              <h5>PROCESO DE LIMPIEZA, DESINFECCIÓN Y ESTERILIZACIÓN</h5>
+
+
+              <div class="col-md-4 ">
+                <label  class="form-label mt-2">Limpieza</label>
+                <select class="form-control" formControlName="limpieza">
+                  <option></option>
+                  <option>Si</option>
+                  <option>No</option>
+                </select>
+              </div>
+
+              <div class="col-md-4 ">
+                <label  class="form-label mt-2">Esterilización</label>
+                <select class="form-control" formControlName="esterilizacion">
+                  <option></option>
+                  <option>Si</option>
+                  <option>No</option>
+                </select>
+              </div>
+
+              <div class="col-md-4 ">
+                <label  class="form-label mt-2">Desinfección</label>
+                <select class="form-control" formControlName="desinfeccion">
+                  <option></option>
+                  <option>Si</option>
+                  <option>No</option>
+                </select>
+              </div>
+
+              <hr style="color: #0056b2;">
+              <h5>GESTION DE RIESGO</h5>
+
+              <div class="col-md-6">
+                <label  class="form-label mt-2">PROBABILIDAD DE EVENTOS ADVERSOS</label>
+                <textarea type="text" class="form-control" formControlName="eventosAdversos"></textarea>
+              </div>
+
+              <div class="col-md-6">
+                <label  class="form-label mt-2">ACCIONES PREVENTIVAS</label>
+                <textarea type="text" class="form-control" formControlName="preventivas"></textarea>
+              </div>
+
+              <br>
+              <br>
+              <br>
+              <button class="mt-4" mat-raised-button color="primary"  [disabled]="createEquipo.invalid" type="submit" >Registrar Equipo</button>
+     
+           </form>
+          </div>
+        </div>
+    </body>
+</html>
+

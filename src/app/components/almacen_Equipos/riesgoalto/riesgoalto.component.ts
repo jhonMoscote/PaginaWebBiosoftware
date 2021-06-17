@@ -26,7 +26,7 @@ export class RiesgoaltoComponent implements OnInit {
     this.getEquipo()
   }
   getEquipo(){
-    this._equiposServices.getEquiposAlmacenRiesgoAlto().subscribe(data => {
+    this._equiposServices.getEquiposAlmacenClase3().subscribe(data => {
       this.equipos = [];
       data.forEach((element: any)=>{
         //console.log(element.payload.doc.id);

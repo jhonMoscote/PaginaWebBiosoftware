@@ -26,14 +26,11 @@ export class ConsultaprioritariaComponent implements OnInit {
       this._equiposServices.getEquiposConsulta().subscribe(data => {
         this.equipos = [];
         data.forEach((element: any)=>{
-          //console.log(element.payload.doc.id);
-          //console.log(element.payload.doc.data());
           this.equipos.push({
             id: element.payload.doc.id,
             ...element.payload.doc.data()
           })
         });
-        console.log(this.equipos);
   
       })
 
@@ -57,7 +54,5 @@ export class ConsultaprioritariaComponent implements OnInit {
           })    
         }); 
     this.costoConsultaPrioritaria=  this.equiposConsultaPrioritaria.map((costos)=>costos.costo).reduce((prev,next)=>prev+next,0)
-    // this.equipos.map((costos)=>costos.consultorio);
-    console.log("consulta prioritaria"+this.costoConsultaPrioritaria);
       })}
 }

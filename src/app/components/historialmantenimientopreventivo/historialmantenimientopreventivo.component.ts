@@ -17,17 +17,17 @@ export class HistorialmantenimientopreventivoComponent implements OnInit {
   numerohorasCorrectivo: number=0;
   horasPreventivo: any[]=[];
   horasCorrectivo: any[]=[];
+  imagenes : any[]=[];
+  ureles :any[] = [];
+  url :string;
   constructor(private firestore: AngularFirestore, private router: Router,private aRoute: ActivatedRoute) { 
-   
-    
+
     this.id = this.aRoute.snapshot.paramMap.get('id');
-    console.log(this.id);
-   
-  
+
   }
 
   ngOnInit(): void {
-    this.getEquipo(),this.getNumeroPreventivo(), this.getNumeroCorrectivo()
+    this.getEquipo(),this.getNumeroPreventivo(), this.getNumeroCorrectivo(),this. getPreventivo()
     
    
 
@@ -35,7 +35,7 @@ export class HistorialmantenimientopreventivoComponent implements OnInit {
   }
 
   consultaPreventivo(){
- return this.firestore.collection("preventivo", ref => ref.where("id" ,"==", this.id )).snapshotChanges();
+ return this.firestore.collection("preventivo", ref => ref.where("ids" ,"==", this.id )).snapshotChanges();
   
   }
   conteoPersonal(){
@@ -48,25 +48,22 @@ export class HistorialmantenimientopreventivoComponent implements OnInit {
     consultaPreventivo().subscribe(data => {
       this.mantenimientos = [];
       data.forEach((element: any)=>{
-        //console.log(element.payload.doc.id);
-        //console.log(element.payload.doc.data());
         this.mantenimientos.push({
 
           id: element.payload.doc.id,
           ...element.payload.doc.data()
         })
       });
-      console.log(this.mantenimientos);
 
     })
   }
 
   conteoHoraPreventivo(){
-    return this.firestore.collection("preventivo", ref => ref.where("id" ,"==", this.id ).where( "tiempoejecucion" ,">=", 0 )).snapshotChanges();
+    return this.firestore.collection("preventivo", ref => ref.where("ids" ,"==", this.id ).where( "tiempoejecucion" ,">=", 0 )).snapshotChanges();
 
   }
   conteoHoraCorrectivo(){
-    return this.firestore.collection("correctivo", ref => ref.where("id" ,"==", this.id ).where( "tiempoejecucion" ,">=", 0 )).snapshotChanges();
+    return this.firestore.collection("correctivo", ref => ref.where("ids" ,"==", this.id ).where( "tiempoejecucion" ,">=", 0 )).snapshotChanges();
 
   }
 
@@ -104,18 +101,46 @@ export class HistorialmantenimientopreventivoComponent implements OnInit {
       this.mantenimientos = [];
       data.forEach((element: any)=>{
         this.numero = this.numero+1;
-        //console.log(element.payload.doc.id);
-        //console.log(element.payload.doc.data());
         this.mantenimientos.push({
           
           id: element.payload.doc.id,
           ...element.payload.doc.data()
         })
       });
-      console.log(this.mantenimientos);
 
     })
   }
+
+  getCrono(){
+    return this.firestore.collection('cronograma').snapshotChanges();
+  }
+
+
+
+  getPreventivo(){
+    this.
+    getCrono().subscribe(data => {
+      this.imagenes = [];
+      data.forEach((element: any)=>{
+        this.imagenes.push({
+
+          id: element.payload.doc.id,
+          ...element.payload.doc.data()
+        })
+      });
+      this.ureles = this.imagenes.map((urñ)=>urñ.url);
+      this.ureles.sort((a, b) => a-b);
+  
+      for(let i =0; i < this.ureles.length;i++){
+  
+       this.url = this.ureles[i];
+        
+      }
+
+
+    })
+  }
+
 
 
 

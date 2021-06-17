@@ -6,10 +6,9 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
-import {ToastrModule} from 'ngx-toastr';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InicioComponent } from './components/inicio/inicio.component';
@@ -18,10 +17,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ServiciosComponent } from './components/servicios/servicios.component';
 import { AlmacenComponent } from './components/almacen/almacen.component';
 import { PlanificacionComponent } from './components/planificacion/planificacion.component';
-import { GestionComponent } from './components/gestion/gestion.component';
-import { EjecucionComponent } from './components/ejecucion/ejecucion.component';
 import { InspecionComponent } from './components/inspecion/inspecion.component';
-import { InformacionEquipoComponent } from './components/informacion-equipo/informacion-equipo.component';
 import { RiesgoaltoComponent } from './components/almacen_Equipos/riesgoalto/riesgoalto.component';
 import { RiesgomedioComponent } from './components/almacen_Equipos/riesgomedio/riesgomedio.component';
 import { RiesgobajoComponent } from './components/almacen_Equipos/riesgobajo/riesgobajo.component';
@@ -31,14 +27,12 @@ import { UciadultosComponent } from './components/servicios_Hospital/uciadultos/
 import { UcininosComponent } from './components/servicios_Hospital/ucininos/ucininos.component';
 import { UrgenciasComponent } from './components/servicios_Hospital/urgencias/urgencias.component';
 import { CreateAlmacenComponent } from './components/create-almacen/create-almacen.component';
-
 import { MenuequipoComponent } from './components/menuequipo/menuequipo.component';
-import { MenuhojavidaComponent } from './components/menuhojavida/menuhojavida.component';
 import { HojadevidaComponent } from './components/hojadevida/hojadevida/hojadevida.component';
 import { MantenimientopreventivoComponent } from './components/hojadevida/mantenimientopreventivo/mantenimientopreventivo.component';
 import { MantenimientocorrectivoComponent } from './components/hojadevida/mantenimientocorrectivo/mantenimientocorrectivo.component';
 import { CertificacionmetrologicaComponent } from './components/hojadevida/certificacionmetrologica/certificacionmetrologica.component';
-import { ProtocololimpiezaComponent } from './components/hojadevida/protocololimpieza/protocololimpieza.component';
+
 import { InspeccionseguridadComponent } from './components/hojadevida/inspeccionseguridad/inspeccionseguridad.component';
 import { InspeccionfuncionamientoComponent } from './components/hojadevida/inspeccionfuncionamiento/inspeccionfuncionamiento.component';
 import { ActualizarequipoComponent } from './components/hojadevida/actualizarequipo/actualizarequipo.component';
@@ -74,6 +68,42 @@ import { Consultorioodontologia3Component } from './components/consultorios/cons
 import { MenuhojadevidaComponent } from './components/hojadevida/menuhojadevida/menuhojadevida.component';
 import { DocumentosequiposComponent } from './components/hojadevida/documentosequipos/documentosequipos.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { RepuestosComponent } from './ui/repuestos/repuestos.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
+import { IniciosesionComponent } from './components/iniciosesion/iniciosesion.component';
+ import { AuthService } from "./services/auth.service";
+import { RegistrarequipoComponent } from './components/hojadevida/registrarequipo/registrarequipo.component';
+import { RutinaComponent } from './ui/rutina/rutina.component';
+import { RutinapreventivaComponent } from './components/hojadevida/rutinapreventiva/rutinapreventiva.component';
+import { MostrarutinaComponent } from './components/hojadevida/mostrarutina/mostrarutina.component';
+import { FallaElectricaComponent } from './components/falla-electrica/falla-electrica.component';
+import { Clase2aComponent } from './components/almacen_Equipos/clase2a/clase2a.component';
+import { FormatoDarBajaComponent } from './components/formato-dar-baja/formato-dar-baja.component';
+import { EditarusuarioComponent } from './components/editarusuario/editarusuario.component';
+import { ListausuariosComponent } from './components/listausuarios/listausuarios.component';
+import { RegistrarusuarioComponent } from './components/registrarusuario/registrarusuario.component';
+import { CronogramaComponent } from './components/cronograma/cronograma.component';
+import { EquiposdadosbajaComponent } from './components/equiposdadosbaja/equiposdadosbaja.component';
+import { ReportebajaComponent } from './components/reportebaja/reportebaja.component';
+import { ReporteCorrectivoComponent } from './components/reporte-correctivo/reporte-correctivo.component';
+import { ReportePreventivoComponent } from './components/reporte-preventivo/reporte-preventivo.component';
+import { ProtocololimpiezaComponent } from './components/protocololimpieza/protocololimpieza.component';
+import { CodigoqrComponent } from './components/codigoqr/codigoqr.component';
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -83,10 +113,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     ServiciosComponent,
     AlmacenComponent,
     PlanificacionComponent,
-    GestionComponent,
-    EjecucionComponent,
     InspecionComponent,
-    InformacionEquipoComponent,
     RiesgoaltoComponent,
     RiesgomedioComponent,
     RiesgobajoComponent,
@@ -96,14 +123,11 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     UcininosComponent,
     UrgenciasComponent,
     CreateAlmacenComponent,
- 
     MenuequipoComponent,
-    MenuhojavidaComponent,
     HojadevidaComponent,
     MantenimientopreventivoComponent,
     MantenimientocorrectivoComponent,
     CertificacionmetrologicaComponent,
-    ProtocololimpiezaComponent,
     InspeccionseguridadComponent,
     InspeccionfuncionamientoComponent,
     ActualizarequipoComponent,
@@ -117,7 +141,6 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     EnfermeriaComponent,
     HistorialmantenimientopreventivoComponent,
     PorcentajeCorrectivoComponent,
- 
     PorcentajePresupuestoComponent,
     FallasEquipoComponent,
     FallasPersonalComponent,
@@ -137,13 +160,40 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     Consultorioodontologia2Component,
     Consultorioodontologia3Component,
     MenuhojadevidaComponent,
-    DocumentosequiposComponent
+    DocumentosequiposComponent,
+    RepuestosComponent,
+    DashboardComponent,
+    SignInComponent,
+    SignUpComponent,
+    ForgotPasswordComponent,
+    VerifyEmailComponent,
+    IniciosesionComponent,
+    RegistrarequipoComponent,
+    RutinaComponent,
+    RutinapreventivaComponent,
+    MostrarutinaComponent,
+    FallaElectricaComponent,
+    Clase2aComponent,
+    FormatoDarBajaComponent,
+    EditarusuarioComponent,
+    ListausuariosComponent,
+    RegistrarusuarioComponent,
+    CronogramaComponent,
+    EquiposdadosbajaComponent,
+    ReportebajaComponent,
+    ReporteCorrectivoComponent,
+    ReportePreventivoComponent,
+    ProtocololimpiezaComponent,
+    CodigoqrComponent,
+ 
+   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAnalyticsModule,
+    AngularFireAuthModule,
     AngularFirestoreModule,
     ReactiveFormsModule,
     FormsModule,
@@ -151,9 +201,18 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     BrowserAnimationsModule,
     AngularFireStorageModule,
     MatProgressBarModule,
-    HttpClientModule
+    HttpClientModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    FlexLayoutModule,
+    MatButtonModule,
+    MatAutocompleteModule,
+    BrowserModule,
+    NgxQRCodeModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [AuthService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

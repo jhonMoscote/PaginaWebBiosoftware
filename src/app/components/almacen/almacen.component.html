@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <html>
   <head>
 
@@ -15,15 +16,21 @@
                 <td>Descripcion</td>
                 <td>Cantidad Restantes</td>
                 <td>Cantidad Inicial</td>
+                <td></td>
+                
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let repuesto of repuestos">
-                <td><a [routerLink]="['/create-almacen/', repuesto.id]">{{repuesto.nombre}}</a></td>
+                <td>{{repuesto.nombre}}</td>
                 <td> {{repuesto.costo}}</td>
                 <td>{{repuesto.descripcion}}</td>
                 <td> {{repuesto.cantidadRestante}}</td>
-                <td>{{repuesto.cantidadInicial}}</td>           
+                <td>{{repuesto.cantidadInicial}}</td>  
+                <td>
+                 
+                  <i (click)="eliminarRepuesto(repuesto.id)" class="fas fa-trash-alt fa-lg text-danger"></i>
+                </td>         
               </tr>
               <button class="btn btn-primary btn-lg float-right mt-4 " routerLink="/create-almacen">Agregar</button>
             </tbody>

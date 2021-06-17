@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "venta-oro-1dc36"
+    "default": "equiposmedicos",
+    "dist/paginaEquipos": "equiposmedicos"
   }
 }

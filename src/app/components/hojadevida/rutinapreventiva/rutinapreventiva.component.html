@@ -1,0 +1,188 @@
+<app-navbar></app-navbar>
+<html>
+    <head>
+
+    </head>
+    <body>
+
+       <div class="card">
+            
+        <div class="container">
+
+          <h1 class="text-center mt-3">Registro Rutina Preventiva</h1> 
+      
+          
+            <h5 class="mt-4">Rutina de Mantenimiento</h5>
+            <form class="row g-3" [formGroup]="createRutina"  (ngSubmit)="agregarRutina()">
+          
+           
+             
+
+            <div class="col-md-10 ">
+              <label  class="form-label ">Procedimiento 1</label>
+              <input type="text" class="form-control"   formControlName="procedimiento1" >
+            </div>
+
+         
+            <div class="col-md-10 ">
+                <label  class="form-label ">Procedimiento 2</label>
+                <input type="text" class="form-control"   formControlName="procedimiento2" >
+              </div>
+
+              <div class="col-md-10 ">
+                <label  class="form-label ">Procedimiento 3</label>
+                <input type="text" class="form-control"   formControlName="procedimiento3" >
+              </div>
+
+              <div class="col-md-10 ">
+                <label  class="form-label ">Procedimiento 4</label>
+                <input type="text" class="form-control"   formControlName="procedimiento4" >
+              </div>
+
+              <div class="col-md-10 ">
+                <label  class="form-label ">Procedimiento 5</label>
+                <input type="text" class="form-control"   formControlName="procedimiento5" >
+              </div>
+
+
+
+              <div class="col-md-10 ">
+                <label  class="form-label ">Procedimiento 6</label>
+                <input type="text" class="form-control"   formControlName="procedimiento6" >
+              </div>
+
+
+           <div class="col-md-10 ">
+              <label  class="form-label ">Procedimiento 7</label>
+              <input type="text" class="form-control"   formControlName="procedimiento7" >
+            </div>
+
+            <div class="col-md-10 ">
+                <label  class="form-label ">Procedimiento 8</label>
+                <input type="text" class="form-control"   formControlName="procedimiento8" >
+              </div>
+
+              <div class="col-md-10 ">
+                <label  class="form-label ">Procedimiento 9</label>
+                <input type="text" class="form-control"   formControlName="procedimiento9" >
+              </div>
+
+              <div class="col-md-10 ">
+                <label  class="form-label ">Procedimiento 10</label>
+                <input type="text" class="form-control"   formControlName="procedimiento10" >
+              </div>
+
+              <div class="col-md-10 ">
+                <label  class="form-label ">Procedimiento 11</label>
+                <input type="text" class="form-control"   formControlName="procedimiento11" >
+              </div>
+
+              <div class="col-md-10 ">
+                <label  class="form-label ">Procedimiento 12</label>
+                <input type="text" class="form-control"   formControlName="procedimiento12" >
+              </div>
+
+              <div class="col-md-10 ">
+                <label  class="form-label ">Procedimiento 13</label>
+                <input type="text" class="form-control"   formControlName="procedimiento13" >
+              </div>
+
+              <div class="col-md-10 ">
+                <label  class="form-label ">Procedimiento 14</label>
+                <input type="text" class="form-control"   formControlName="procedimiento14" >
+              </div>
+
+              <div class="col-md-10 ">
+                <label  class="form-label ">Procedimiento 15</label>
+                <input type="text" class="form-control"   formControlName="procedimiento15" >
+              </div>
+
+
+          
+          
+           
+
+              <div class="mt-3 mr-3">
+                <button type="submit" class="btn  btn-lg mr-12 btn-primary" >Registrar Rutina de Mantenimiento</button>
+              
+            </div>
+         
+          </form>
+          <div class="mt-3 mr-3">
+            <button  class="btn  btn-lg mr-12 btn-primary" (click)="EditarRutina()" >Editar Rutina</button>
+          
+        </div>
+          </div>
+        </div>
+
+     <!--   <html>
+
+
+        <head>
+
+        </head>
+
+        <body>
+          <h1 class="text-center mt-3">Registro Rutina Preventiva</h1> 
+
+          <form (ngSubmit)="guardar()" autocomplete="off" #miFormulario="ngForm">
+  
+           
+  
+          
+  
+          agregar Rutina de Mantenimiento Preventivo
+            <div class="mb-3 row">
+        
+              <div class="col-sm-9">
+  
+                <div class="input-group">
+                  <input class="form-control" placeholder="Agregar Rutina"
+                    [(ngModel)]="nuevoJuego"
+                    name="nuevoJuego"
+                    (keyup.enter)="agregarJuego()">
+                    <button class="btn btn-outline-primary" type="button"
+                    (click)="agregarJuego()">Agregar</button>
+              </div>
+              </div>
+  
+            </div>
+  
+  
+  
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label ">PROCEDIMIENTOS</label>
+                <div class="col-sm-9">
+                  <div class="input-group mb-1" *ngFor="let juego of persona.favoritos; let i = index">
+                    <input 
+                            [(ngModel)]="juego.procedimiento"
+                            name="favorito_{{ i }}"
+                            class="form-control " required>
+                            <button class="btn btn-outline-danger" type="button"
+                              (click)="eliminar(i)"
+                            >Eliminar</button>
+  
+                  </div>
+                  
+                </div>
+            </div>
+  
+  
+            <div class="mb-3 row">
+             
+              <div class="col-sm-12">
+                <button type="button" class="btn btn-primary float-end"
+                [disabled]="miFormulario.invalid"
+                (click)="guardar()">Guardar</button>
+              </div>
+  
+            </div>
+          </form>
+  
+          <span>Persona</span>
+          <pre>{{persona | json}}</pre>
+          
+        </body>
+        </html>
+      
+-->

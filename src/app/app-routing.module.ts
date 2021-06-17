@@ -1,10 +1,12 @@
 import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AlmacenComponent } from './components/almacen/almacen.component';
+import { Clase2aComponent } from './components/almacen_Equipos/clase2a/clase2a.component';
 import { DadosbajaComponent } from './components/almacen_Equipos/dadosbaja/dadosbaja.component';
 import { RiesgoaltoComponent } from './components/almacen_Equipos/riesgoalto/riesgoalto.component';
 import { RiesgobajoComponent } from './components/almacen_Equipos/riesgobajo/riesgobajo.component';
 import { RiesgomedioComponent } from './components/almacen_Equipos/riesgomedio/riesgomedio.component';
+import { CodigoqrComponent } from './components/codigoqr/codigoqr.component';
 import { Consultorioenfermeria1Component } from './components/consultorios/consultorioenfermeria1/consultorioenfermeria1.component';
 import { Consultorioenfermeria2Component } from './components/consultorios/consultorioenfermeria2/consultorioenfermeria2.component';
 import { Consultoriomedicina1Component } from './components/consultorios/consultoriomedicina1/consultoriomedicina1.component';
@@ -20,12 +22,17 @@ import { ConsultoriosenfermeriaComponent } from './components/consultoriosenferm
 import { ConsultoriosmedicinaComponent } from './components/consultoriosmedicina/consultoriosmedicina.component';
 import { ConsultoriosodontologiaComponent } from './components/consultoriosodontologia/consultoriosodontologia.component';
 import { CreateAlmacenComponent } from './components/create-almacen/create-almacen.component';
-import { EjecucionComponent } from './components/ejecucion/ejecucion.component';
+import { CronogramaComponent } from './components/cronograma/cronograma.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { EditarusuarioComponent } from './components/editarusuario/editarusuario.component';
 import { EquipomantenimientoComponent } from './components/equipomantenimiento/equipomantenimiento.component';
 import { EquiposComponent } from './components/equipos/equipos.component';
+import { EquiposdadosbajaComponent } from './components/equiposdadosbaja/equiposdadosbaja.component';
+import { FallaElectricaComponent } from './components/falla-electrica/falla-electrica.component';
 import { FallasEquipoComponent } from './components/fallas-equipo/fallas-equipo.component';
 import { FallasPersonalComponent } from './components/fallas-personal/fallas-personal.component';
-import { GestionComponent } from './components/gestion/gestion.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { FormatoDarBajaComponent } from './components/formato-dar-baja/formato-dar-baja.component';
 import { HistorialmantenimientoComponent } from './components/historialmantenimiento/historialmantenimiento.component';
 import { HistorialmantenimientopreventivoComponent } from './components/historialmantenimientopreventivo/historialmantenimientopreventivo.component';
 import { ActualizarequipoComponent } from './components/hojadevida/actualizarequipo/actualizarequipo.component';
@@ -37,16 +44,23 @@ import { InspeccionseguridadComponent } from './components/hojadevida/inspeccion
 import { MantenimientocorrectivoComponent } from './components/hojadevida/mantenimientocorrectivo/mantenimientocorrectivo.component';
 import { MantenimientopreventivoComponent } from './components/hojadevida/mantenimientopreventivo/mantenimientopreventivo.component';
 import { MenuhojadevidaComponent } from './components/hojadevida/menuhojadevida/menuhojadevida.component';
-import { ProtocololimpiezaComponent } from './components/hojadevida/protocololimpieza/protocololimpieza.component';
-import { InformacionEquipoComponent } from './components/informacion-equipo/informacion-equipo.component';
+import { MostrarutinaComponent } from './components/hojadevida/mostrarutina/mostrarutina.component';
+import { RegistrarequipoComponent } from './components/hojadevida/registrarequipo/registrarequipo.component';
+import { RutinapreventivaComponent } from './components/hojadevida/rutinapreventiva/rutinapreventiva.component';
 import { InicioComponent } from './components/inicio/inicio.component';
+import { IniciosesionComponent } from './components/iniciosesion/iniciosesion.component';
 import { InspecionComponent } from './components/inspecion/inspecion.component';
+import { ListausuariosComponent } from './components/listausuarios/listausuarios.component';
 import { MenuequipoComponent } from './components/menuequipo/menuequipo.component';
-import { MenuhojavidaComponent } from './components/menuhojavida/menuhojavida.component';
 import { PlanificacionComponent } from './components/planificacion/planificacion.component';
 import { PorcentajeCorrectivoComponent } from './components/porcentaje-correctivo/porcentaje-correctivo.component';
 import { PorcentajePresupuestoComponent } from './components/porcentaje-presupuesto/porcentaje-presupuesto.component';
 import { PorcentajepreventivosComponent } from './components/porcentajepreventivos/porcentajepreventivos.component';
+import { ProtocololimpiezaComponent } from './components/protocololimpieza/protocololimpieza.component';
+import { RegistrarusuarioComponent } from './components/registrarusuario/registrarusuario.component';
+import { ReporteCorrectivoComponent } from './components/reporte-correctivo/reporte-correctivo.component';
+import { ReportePreventivoComponent } from './components/reporte-preventivo/reporte-preventivo.component';
+import { ReportebajaComponent } from './components/reportebaja/reportebaja.component';
 import { ServiciosComponent } from './components/servicios/servicios.component';
 import { ConsultaprioritariaComponent } from './components/servicios_Hospital/consultaprioritaria/consultaprioritaria.component';
 import { EnfermeriaComponent } from './components/servicios_Hospital/enfermeria/enfermeria.component';
@@ -58,77 +72,102 @@ import { UciadultosComponent } from './components/servicios_Hospital/uciadultos/
 import { UcineonatalComponent } from './components/servicios_Hospital/ucineonatal/ucineonatal.component';
 import { UcininosComponent } from './components/servicios_Hospital/ucininos/ucininos.component';
 import { UrgenciasComponent } from './components/servicios_Hospital/urgencias/urgencias.component';
-
-
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
+import { AuthGuard } from "./services/guard/auth.guard";
 const routes: Routes = [
-  {path:'', component:InicioComponent},
-  {path: 'inicio', component: InicioComponent,pathMatch:'full'},
-  {path: 'equipos', component: EquiposComponent},
-  {path: 'almacen', component: AlmacenComponent},
-  {path: 'servicios', component:ServiciosComponent},
-  {path: 'planificacion', component:PlanificacionComponent},
-  {path: 'gestion', component: GestionComponent},
-  {path: 'ejecucion', component:EjecucionComponent},
-  {path: 'inspecion',component:InspecionComponent},
-  {path: 'informacion-equipo', component:InformacionEquipoComponent},
-  {path: 'riesgoalto', component:RiesgoaltoComponent},
-  {path: 'riesgomedio', component:RiesgomedioComponent},
-  {path: 'riesgobajo', component :RiesgobajoComponent},
-  {path: 'dadosbaja', component:DadosbajaComponent},
-  {path: 'uciadultos', component:UciadultosComponent},
-  {path: 'medicinageneral', component: UcineonatalComponent},
-  {path: 'ucininos', component: UcininosComponent},
-  {path: 'urgencias', component: UrgenciasComponent},
-  {path: 'create-almacen', component: CreateAlmacenComponent},
-  {path: 'create-almacen/:id', component: CreateAlmacenComponent},
-  {path: 'menuequipo', component: MenuequipoComponent},
-  {path: 'menuequipo/:id', component: MenuequipoComponent},
-  {path: 'menuhojavida', component: MenuhojavidaComponent},
-  {path: 'hojadevida', component: HojadevidaComponent},
-  {path: 'hojadevida/:id', component: HojadevidaComponent},
-  {path: 'mantenimientocorrectivo', component: MantenimientocorrectivoComponent},
-  {path: 'mantenimientocorrectivo/:id', component: MantenimientocorrectivoComponent},
-  {path: 'mantenimientopreventivo', component: MantenimientopreventivoComponent},
-  {path: 'mantenimientopreventivo/:id', component: MantenimientopreventivoComponent},
-  {path: 'protocololimpieza', component: ProtocololimpiezaComponent},
-  {path: 'inspeccionseguridad', component: InspeccionseguridadComponent},
-  {path:'inspeccionfuncionamiento', component: InspeccionfuncionamientoComponent},
-  {path: 'actualizarequipo/:id', component: ActualizarequipoComponent},
-  {path: 'certificacionmetrologica', component: CertificacionmetrologicaComponent},
-  {path: 'equipomantenimiento', component: EquipomantenimientoComponent},
-  {path: 'equipomantenimiento/:id', component: EquipomantenimientoComponent},
-  {path: 'historialmantenimiento/:id', component: HistorialmantenimientoComponent},
-  {path: 'historialmantenimiento', component: HistorialmantenimientoComponent},
-  {path: 'consultaprioritaria', component: ConsultaprioritariaComponent},
-  {path: 'laboratorioclinico', component: LaboratorioclinicoComponent},
-  {path: 'serviciofarmaceutico', component:ServiciofarmaceuticoComponent},
-  {path: 'tomainterpretacion', component: InterpretacionComponent},
-  {path: 'detenciontemprana', component:TempranaComponent},
-  {path: 'enfermeria', component: EnfermeriaComponent},
-  {path: 'historialmantenimientopreventivo/:id', component: HistorialmantenimientopreventivoComponent},
-  {path: 'porcentajecorrectivo', component: PorcentajeCorrectivoComponent},
-  {path: 'porcentajespreventivos', component:PorcentajepreventivosComponent},
-  {path: 'porcentajepresupuesto', component: PorcentajePresupuestoComponent},
-  {path: 'fallasequipos/:id', component: FallasEquipoComponent},
-  {path: 'fallaspersonal/:id', component: FallasPersonalComponent},
-  {path: 'consultoriosmedicinageneral', component:ConsultoriosmedicinaComponent},
-  {path: 'consultoriosenfermeria', component: ConsultoriosenfermeriaComponent},
-  {path: 'consultoriosodontologia', component: ConsultoriosodontologiaComponent},
-  {path: 'consultoriomedicinageneral1', component:Consultoriomedicina1Component},
-  {path: 'consultoriomedicinageneral2', component:Consultoriomedicina2Component},
-  {path: 'consultoriomedicinageneral3', component: Consultoriomedicina3Component},
-  {path: 'consultoriomedicinageneral4', component:Consultoriomedicina4Component},
-  {path: 'consultoriomedicinageneral5', component:Consultoriomedicina5Component},
-  {path: 'consultoriomedicinageneral6', component:Consultoriomedicina6Component},
-  {path:'consultorioenfermeria1', component: Consultorioenfermeria1Component},
-  {path:'consultorioenfermeria2', component: Consultorioenfermeria2Component},
-  {path: 'consultorioodontologia1', component: Consultorioodontologia1Component},
-  {path: 'consultorioodontologia2', component: Consultorioodontologia2Component},
-  {path: 'consultorioodontologia3', component: Consultorioodontologia3Component},
-  {path: 'menuhojadevida', component: MenuhojadevidaComponent},
-  {path: 'menuhojadevida/:id', component: MenuhojadevidaComponent},
-  {path:'documentosequipos/:id', component: DocumentosequiposComponent}
+  { path: '', redirectTo: '/sign-in', pathMatch: 'full' },
 
+  
+  { path: 'sign-in', component: SignInComponent },
+  { path: 'register-user', component: SignUpComponent },
+  { path: 'dashboard', component : DashboardComponent, canActivate: [AuthGuard]},
+  { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: 'verify-email-address', component: VerifyEmailComponent },
+  {path: 'inicio',  component: InicioComponent,pathMatch:'full',canActivate: [AuthGuard]},
+  {path: 'iniciosesion', component: IniciosesionComponent,canActivate: [AuthGuard]},
+  {path: 'equipos', component: EquiposComponent,canActivate: [AuthGuard]},
+  {path: 'almacen', component: AlmacenComponent,canActivate: [AuthGuard] },
+  {path: 'servicios', component:ServiciosComponent,canActivate: [AuthGuard]},
+  {path: 'planificacion', component:PlanificacionComponent,canActivate: [AuthGuard]},
+  {path: 'inspecion',component:InspecionComponent,canActivate: [AuthGuard]},
+  {path: 'riesgoalto', component:RiesgoaltoComponent,canActivate: [AuthGuard]},
+  {path: 'riesgomedio', component:RiesgomedioComponent,canActivate: [AuthGuard]},
+  {path: 'riesgobajo', component :RiesgobajoComponent,canActivate: [AuthGuard]},
+  {path: 'dadosbaja', component:DadosbajaComponent,canActivate: [AuthGuard]},
+  {path: 'uciadultos', component:UciadultosComponent,canActivate: [AuthGuard]},
+  {path: 'medicinageneral', component: UcineonatalComponent,canActivate: [AuthGuard]},
+  {path: 'ucininos', component: UcininosComponent,canActivate: [AuthGuard]},
+  {path: 'urgencias', component: UrgenciasComponent,canActivate: [AuthGuard]},
+  {path: 'create-almacen', component: CreateAlmacenComponent,canActivate: [AuthGuard]},
+  {path: 'create-almacen/:id', component: CreateAlmacenComponent,canActivate: [AuthGuard]},
+  {path: 'menuequipo', component: MenuequipoComponent,canActivate: [AuthGuard]},
+  {path: 'menuequipo/:id', component: MenuequipoComponent,canActivate: [AuthGuard]},
+  {path: 'hojadevida', component: HojadevidaComponent ,canActivate: [AuthGuard]},
+  {path: 'hojadevida/:id', component: HojadevidaComponent },
+  {path: 'mantenimientocorrectivo', component: MantenimientocorrectivoComponent,canActivate: [AuthGuard]},
+  {path: 'mantenimientocorrectivo/:id', component: MantenimientocorrectivoComponent,canActivate: [AuthGuard]},
+  {path: 'mantenimientopreventivo', component: MantenimientopreventivoComponent,canActivate: [AuthGuard]},
+  {path: 'mantenimientopreventivo/:id', component: MantenimientopreventivoComponent,canActivate: [AuthGuard]},
+  {path: 'inspeccionseguridad', component: InspeccionseguridadComponent,canActivate: [AuthGuard]},
+  {path:'inspeccionfuncionamiento', component: InspeccionfuncionamientoComponent,canActivate: [AuthGuard]},
+  {path: 'actualizarequipo/:id', component: ActualizarequipoComponent,canActivate: [AuthGuard]},
+  {path: 'certificacionmetrologica/:id', component: CertificacionmetrologicaComponent,canActivate: [AuthGuard]},
+  {path: 'equipomantenimiento', component: EquipomantenimientoComponent,canActivate: [AuthGuard]},
+  {path: 'equipomantenimiento/:id', component: EquipomantenimientoComponent,canActivate: [AuthGuard]},
+  {path: 'historialmantenimiento/:id', component: HistorialmantenimientoComponent,canActivate: [AuthGuard]},
+  {path: 'historialmantenimiento', component: HistorialmantenimientoComponent,canActivate: [AuthGuard]},
+  {path: 'consultaprioritaria', component: ConsultaprioritariaComponent,canActivate: [AuthGuard]},
+  {path: 'laboratorioclinico', component: LaboratorioclinicoComponent,canActivate: [AuthGuard]},
+  {path: 'serviciofarmaceutico', component:ServiciofarmaceuticoComponent,canActivate: [AuthGuard]},
+  {path: 'tomainterpretacion', component: InterpretacionComponent,canActivate: [AuthGuard]},
+  {path: 'detenciontemprana', component:TempranaComponent,canActivate: [AuthGuard]},
+  {path: 'enfermeria', component: EnfermeriaComponent,canActivate: [AuthGuard]},
+  {path: 'historialmantenimientopreventivo/:id', component: HistorialmantenimientopreventivoComponent,canActivate: [AuthGuard]},
+  {path: 'porcentajecorrectivo', component: PorcentajeCorrectivoComponent,canActivate: [AuthGuard]},
+  {path: 'porcentajespreventivos', component:PorcentajepreventivosComponent,canActivate: [AuthGuard]},
+  {path: 'porcentajepresupuesto', component: PorcentajePresupuestoComponent,canActivate: [AuthGuard]},
+  {path: 'fallasequipos/:id', component: FallasEquipoComponent,canActivate: [AuthGuard]},
+  {path: 'fallaspersonal/:id', component: FallasPersonalComponent,canActivate: [AuthGuard]},
+  {path: 'consultoriosmedicinageneral', component:ConsultoriosmedicinaComponent,canActivate: [AuthGuard]},
+  {path: 'consultoriosenfermeria', component: ConsultoriosenfermeriaComponent,canActivate: [AuthGuard]},
+  {path: 'consultoriosodontologia', component: ConsultoriosodontologiaComponent,canActivate: [AuthGuard]},
+  {path: 'consultoriomedicinageneral1', component:Consultoriomedicina1Component,canActivate: [AuthGuard]},
+  {path: 'consultoriomedicinageneral2', component:Consultoriomedicina2Component,canActivate: [AuthGuard]},
+  {path: 'consultoriomedicinageneral3', component: Consultoriomedicina3Component,canActivate: [AuthGuard]},
+  {path: 'consultoriomedicinageneral4', component:Consultoriomedicina4Component,canActivate: [AuthGuard]},
+  {path: 'consultoriomedicinageneral5', component:Consultoriomedicina5Component,canActivate: [AuthGuard]},
+  {path: 'consultoriomedicinageneral6', component:Consultoriomedicina6Component,canActivate: [AuthGuard]},
+  {path:'consultorioenfermeria1', component: Consultorioenfermeria1Component,canActivate: [AuthGuard]},
+  {path:'consultorioenfermeria2', component: Consultorioenfermeria2Component,canActivate: [AuthGuard]},
+  {path: 'consultorioodontologia1', component: Consultorioodontologia1Component,canActivate: [AuthGuard]},
+  {path: 'consultorioodontologia2', component: Consultorioodontologia2Component,canActivate: [AuthGuard]},
+  {path: 'consultorioodontologia3', component: Consultorioodontologia3Component,canActivate: [AuthGuard]},
+  {path: 'menuhojadevida', component: MenuhojadevidaComponent,canActivate: [AuthGuard]},
+  {path: 'menuhojadevida/:id', component: MenuhojadevidaComponent,canActivate: [AuthGuard]},
+  {path:'documentosequipos/:id', component: DocumentosequiposComponent,canActivate: [AuthGuard]},
+  {path: 'registrarequipo', component: RegistrarequipoComponent,canActivate: [AuthGuard]},
+  {path: 'rutinapreventiva/:id', component:RutinapreventivaComponent,canActivate: [AuthGuard]},
+  {path: 'mostrarrutina', component: MostrarutinaComponent,canActivate: [AuthGuard]},
+  {path: 'fallaselectricas/:id', component: FallaElectricaComponent,canActivate: [AuthGuard]},
+  {path: 'clase2a', component:Clase2aComponent,canActivate: [AuthGuard]},
+  {path:'darbajaequipo/:id', component:FormatoDarBajaComponent,canActivate: [AuthGuard]},
+  {path:'editarusuario/:id', component:EditarusuarioComponent,canActivate: [AuthGuard]},
+  {path: 'listausuarios', component:ListausuariosComponent,canActivate: [AuthGuard]},
+  {path:'registrarusuario', component:RegistrarusuarioComponent,canActivate: [AuthGuard]},
+  {path: 'cronograma', component:CronogramaComponent,canActivate: [AuthGuard]},
+  {path: 'equiposdadosbaja/:id', component: EquiposdadosbajaComponent,canActivate: [AuthGuard]},
+  {path: 'reportebaja/:id', component: ReportebajaComponent,canActivate: [AuthGuard]},
+  {path: 'reportepreventivo/:id', component: ReportePreventivoComponent,canActivate: [AuthGuard]},
+  {path: 'reportecorrectivo/:id',component: ReporteCorrectivoComponent,canActivate: [AuthGuard]},
+  {path:'protocololimpieza/:id', component: ProtocololimpiezaComponent, canActivate:[AuthGuard]},
+  {path:'codigoqr/:id', component: CodigoqrComponent, canActivate:[AuthGuard]}
+ 
+
+ 
+
+ 
 
 
 
@@ -136,7 +175,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

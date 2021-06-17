@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <html>
     <head>
 
@@ -7,7 +8,7 @@
         <div class="card">
             <div class="card"> 
         <div class="container">
-          <h3 class="text-center mt-3">Historial Mantenimiento Correctivo</h3> 
+          <h1 class="text-center mt-3">Historial Mantenimiento Correctivo</h1> 
           <br>
           <br>
 
@@ -22,8 +23,11 @@
                 <div>
                 <a class="btn btn-primary btn-lg custom mt-4"   [routerLink]= "['/fallaspersonal/', id]" role="button">Fallas del Personal  <label >{{numeroFallasPersonal}} </label></a>
               </div>
+              <div>
+                <a class="btn btn-primary btn-lg custom mt-4"   [routerLink]= "['/fallaselectricas/', id]" role="button">Fallas Instalaciónes Eléctricas <label >{{numeroFallasElectrico}} </label></a>
               </div>
-              <div class="col-sm ">
+              </div>
+              <div class="col-sm mt-4">
                 <table class="table table-bordered">
                   <thead>
                     <tr>
@@ -71,6 +75,7 @@
               <tr>
                 <th scope="col">Asistencia</th>
                 <th scope="col">Falla Reportada</th>
+                <th scope="col">Criterio de la Falla</th>
                 <th scope="col">Trabajo Realizado</th>
                 <th scope="col">Fecha Mantenimiento</th>
               </tr>
@@ -78,12 +83,11 @@
             <tbody>
               <tr class="text" *ngFor="let mantenimiento of mantenimientosCorrectivos">
                
-                    <td> {{mantenimiento.asistencia}}</td> 
+                    <td><a [routerLink]="['/reportecorrectivo/',mantenimiento.id]"> {{mantenimiento.asistencia}}</a></td> 
                     <td> {{mantenimiento.fallareportada}}</td> 
+                    <td> {{mantenimiento.criteriofalla}}</td> 
                     <td> {{mantenimiento.trabajorealizado}}</td> 
                     <td> {{mantenimiento.fechaCreacion}}</td> 
-                   
-                
               </tr>
           
             </tbody>

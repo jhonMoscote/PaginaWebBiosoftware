@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <html>
   <head>
 
@@ -13,22 +14,26 @@
                   <thead>
                     <tr>
                       <th >Consultorios</th>
+                      <th>Número de Equipos</th>
                       <th >Costo Mantenimiento</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td> <a href="../consultorioodontologia1/">CONSULTORIO ODONTOLOGÍA Nº 1</a></td>
-                      <td>{{costoOdontologia}}</td>
+                      <td> <a  routerLink="/consultorioodontologia1">CONSULTORIO ODONTOLOGÍA Nº 1</a></td>
+                      <td>{{numeroodontologia1}}</td>
+                      <td>{{costoOdontologia }}</td>
                     
                     </tr>
                     <tr>
-                      <td ><a href="../consultorioodontologia2/">CONSULTORIO ODONTOLOGÍA Nº 2</a></td>
+                      <td ><a routerLink="/consultorioodontologia2">CONSULTORIO ODONTOLOGÍA Nº 2</a></td>
+                      <td>{{numeroodontologia2}}</td>
                       <td>{{costoOdontologia2}}</td>
                     </tr>
 
                     <tr>
-                      <td><a href="../consultorioodontologia3/">CONSULTORIO ODONTOLOGÍA Nº 3</a></td>
+                      <td><a routerLink="/consultorioodontologia3">CONSULTORIO ODONTOLOGÍA Nº 3</a></td>
+                      <td>{{numeroodontologia3}}</td>
                       <td>{{costoOdontologia3}}</td>
                     </tr>
 

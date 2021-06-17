@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-menuequipo',
@@ -9,13 +9,29 @@ import { ActivatedRoute } from '@angular/router';
 export class MenuequipoComponent implements OnInit {
 
   id: string| null
-  constructor(private aRoute: ActivatedRoute) { 
+  constructor(private aRoute: ActivatedRoute,private router:Router
+    ) { 
     this.id = this.aRoute.snapshot.paramMap.get('id');
-    console.log(this.id);
 
+   
+  
   }
 
   ngOnInit(): void {
+  
   }
+
+
+
+//Función para actualizar cada 5 segundos(5000 milisegundos)
+
+
+
+ 
+
+
+
+ 
+
 
 }

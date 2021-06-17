@@ -23,9 +23,20 @@ export class EquiposService {
   
   constructor(private firestore: AngularFirestore) { }
 
+  nuevoEquipo(nuevoEquipo: any):Promise<any>{
+    return this.firestore.collection('equipos').add(nuevoEquipo);
+  }
 
   agregarMantenimientoCorrectivo(mantenimientocorrectivo: any): Promise<any>{
     return this.firestore.collection('correctivo').add(mantenimientocorrectivo);
+   
+  }
+  editarEquipo(id: string, data:any): Promise<any> {
+    return this.firestore.collection('equipo').doc(id).update(data);
+  }
+  
+  agregarEquipoBaja(equipoBaja: any): Promise<any>{
+    return this.firestore.collection('bajas').add(equipoBaja);
    
   }
   getMantenimientoCorrectivo(){
@@ -91,12 +102,12 @@ export class EquiposService {
     return this.firestore.collection('equipos', ref => ref.where("servicio","==", "Psicologia")).snapshotChanges();
  
    }
-  getEquiposAlmacenRiesgoAlto(){
-    return this.firestore.collection('equipos', ref => ref.where("clasificacionRiesgo", "==", "Riesgo Alto")).snapshotChanges();
+  getEquiposAlmacenClase3(){
+    return  this.firestore.collection('equipos', ref => ref.where("clasificacionRiesgo","==", "CLASE III")).snapshotChanges();
  
    }
    getEquiposAlmacenRiesgoBajo(){
-    return this.firestore.collection('equipos', ref => ref.where("clasificacionRiesgo", "==", "Riesgo Bajo")).snapshotChanges();
+    return this.firestore.collection('equipos', ref => ref.where("clasificacionRiesgo", "==", "CLASE I")).snapshotChanges();
  
    }
    getEquiposConsultorioMedicina1(){
@@ -147,7 +158,12 @@ export class EquiposService {
    }
    getEquiposAlmacenRiesgoMedio(){
  
-    return this.firestore.collection('equipos', ref => ref.where("clasificacionRiesgo","==", "Riesgo Medio")).snapshotChanges();
+    return this.firestore.collection('equipos', ref => ref.where("clasificacionRiesgo","==", "CLASE II B")).snapshotChanges();
+ 
+   }
+   getEquiposAlmacenClase2A(){
+ 
+    return this.firestore.collection('equipos', ref => ref.where("clasificacionRiesgo","==", "CLASE II A")).snapshotChanges();
  
    }
    getEquiposAlmacenDadosBaja(){
@@ -165,6 +181,9 @@ export class EquiposService {
   actualizarEquipo(id: string, data:any):Promise<any>{
     return this.firestore.collection('equipos').doc(id).update(data);
   }
+
+
+ 
 
   
  

@@ -12,7 +12,7 @@ export const environment = {
     storageBucket: "equiposmedicos.appspot.com",
     messagingSenderId: "448343556783",
     appId: "1:448343556783:web:e78e918f2022500b350a5a",
-    measurementId: "G-WTS6Y8ENHM",
+    measurementId: "G-WTS6Y8ENHM"
     
     
   }

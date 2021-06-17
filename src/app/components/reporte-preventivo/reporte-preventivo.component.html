@@ -1,0 +1,413 @@
+<app-navbar></app-navbar>
+<html>
+    <head>
+
+    </head>
+    <body>
+   
+
+        <div class="card">
+            
+        <div class="container">
+          <h3 class="text-center mt-3">REPORTE MANTENIMIENTO PREVENTIVO</h3> 
+            <h5 class="mt-4">IDENTIFICACION</h5>
+        <form  [formGroup]="mostrarDatos" class="row g-3"  >
+
+          
+           
+          <div class="col-md-4 ">
+            <label  class="form-label mt-2">NOMBRE EQUIPO</label>
+            <input type="text" class="form-control" formControlName="nombreEquipo" >
+          </div>
+          
+          <div class="col-md-4">
+            <label  class="form-label mt-2">MARCA</label>
+            <input type="text" class="form-control"  formControlName="marca">
+          </div>
+         
+          <div class="col-4">
+            <label  class="form-label mt-2">MODELO</label>
+            <input type="text" class="form-control"   formControlName="modelo">
+          </div>
+         
+          <div class="col-md-3">
+            <label  class="form-label">NUMERO DE SERIE</label>
+            <input type="text" class="form-control"  formControlName="serie" >
+          </div>
+
+          <div class="col-md-3">
+            <label  class="form-label ">NUMERO DE ACTIVO</label>
+            <input type="text" class="form-control"  formControlName="nactivo" >
+          </div>
+
+          <div class="col-md-3 ">
+              <label  class="form-label ">SERVICIO</label>
+              <input type="text" class="form-control"  formControlName="servicio">
+            </div>
+
+          <div class="col-md-3 ">
+              <label  class="form-label ">AMBIENTE</label>
+              <input type="text" class="form-control"  formControlName="ubicacioncon" >
+          </div>
+           
+        </form>
+          <h5 class="mt-4">DATOS DE LA ASISTENCIA</h5>
+          
+
+
+
+
+        <form class="row g-3" [formGroup]="MostrarPreventivo" >
+          
+                        <div class="form-group" >
+                          <label  class="is-required">Asistencia</label>
+                          <select class="form-control" formControlName="asistencia" >
+                            <option>Preventivo</option>
+                          </select>
+                        </div>
+
+                        <div class="col-md-4">
+                          <label class="form-label">PERIOCIDAD DE MANTENIMIENTO PREVENTIVO</label>
+                          <input type="text" class="form-control" formControlName="periciodidad">
+                        </div>
+
+                        <div class="col-md-4">
+                          <label class="form-label">REQUIERE CALIBRACION</label>
+                          <input type="text" class="form-control" formControlName="calibracion">
+                        </div>
+
+                        <div class="col-md-4">
+                          <label class="form-label">PERIOCIDAD DE CALIBRACION</label>
+                          <input type="text" class="form-control" formControlName="periocidadCalibracion" >
+                        </div>
+                    
+                        
+                    
+
+                            <hr style="color: #0056b2;" />
+                            <h5>RUTINA MANTENIMIENTO PREVENTIVO</h5>
+
+                        
+
+                            <table class="table table-bordered">
+                              <thead >
+                                <tr>
+                                  <th scope="col" class="text-center">TRIMESTRAL</th>
+                                  <th scope="col" class="text-center">1</th>
+                                
+                                </tr>
+                              </thead>
+                              <tbody *ngFor=" let rutina of rutinas"  >
+                                <tr *ngIf="rutina.procedimiento1 != ''" >
+                                  <td>{{rutina.procedimiento1}}</td>
+                                  <td>
+                                    <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" for value="Si" formControlName="rutina1">
+                                    <label class="form-check-label" for="inlineCheckbox1">Si</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" formControlName="rutina11" value="NO">
+                                    <label class="form-check-label" for="inlineCheckbox1">No</label>
+                                  </div>
+                                </td>
+                              
+                                </tr>
+                                <tr *ngIf="rutina.procedimiento2 != ''"  >
+                                  <td >{{rutina.procedimiento2}}</td>
+                                  <td>
+                                    <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" formControlName="rutina2" value="Si">
+                                    <label class="form-check-label" for="inlineCheckbox1">Si</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" formControlName="rutina12" value="NO">
+                                    <label class="form-check-label" for="inlineCheckbox1">No</label>
+                                  </div>
+                                </td>
+                              
+                                </tr>
+                                <tr *ngIf="rutina.procedimiento3 != ''" >
+                                  <td>{{rutina.procedimiento3}}</td>
+                                  <td>
+                                    <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" formControlName="rutina3" value="Si">
+                                    <label class="form-check-label" for="inlineCheckbox1">Si</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" formControlName="rutina13" value="NO">
+                                    <label class="form-check-label" for="inlineCheckbox1">No</label>
+                                  </div>
+                                </td>
+                                </tr>
+
+                                <tr *ngIf="rutina.procedimiento4 != ''" >
+                                  <td>{{rutina.procedimiento4}}</td>
+                                  <td>
+                                    <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" formControlName="rutina4" value="Si">
+                                    <label class="form-check-label" for="inlineCheckbox1">Si</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" formControlName="rutina14" value="NO">
+                                    <label class="form-check-label" for="inlineCheckbox1">No</label>
+                                  </div>
+                                </td>
+                                </tr>
+
+                                <tr *ngIf="rutina.procedimiento5 != ''" >
+                                  <td>{{rutina.procedimiento5}}</td>
+                                  <td>
+                                    <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" formControlName="rutina5" value="Si">
+                                    <label class="form-check-label" for="inlineCheckbox1">Si</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" formControlName="rutina15" value="NO">
+                                    <label class="form-check-label" for="inlineCheckbox1">No</label>
+                                  </div>
+                                </td>
+                                </tr>
+
+                                <tr *ngIf="rutina.procedimiento6 != ''" >
+                                  <td>{{rutina.procedimiento6}}</td>
+                                  <td>
+                                    <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" formControlName="rutina6" value="Si">
+                                    <label class="form-check-label" for="inlineCheckbox1">Si</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" formControlName="rutina16" value="NO">
+                                    <label class="form-check-label" for="inlineCheckbox1">No</label>
+                                  </div>
+                                </td>
+                                </tr>
+
+                                <tr *ngIf="rutina.procedimiento7 != ''" >
+                                  <td>{{rutina.procedimiento7}}</td>
+                                  <td>
+                                    <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" formControlName="rutina7" value="Si">
+                                    <label class="form-check-label" for="inlineCheckbox1">Si</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" formControlName="rutina17" value="NO">
+                                    <label class="form-check-label" for="inlineCheckbox1">No</label>
+                                  </div>
+                                </td>
+                                </tr>
+
+                                <tr *ngIf="rutina.procedimiento8 != ''" >
+                                  <td>{{rutina.procedimiento8}}</td>
+                                  <td>
+                                    <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" formControlName="rutina8" value="Si">
+                                    <label class="form-check-label" for="inlineCheckbox1">Si</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" formControlName="rutina18" value="NO">
+                                    <label class="form-check-label" for="inlineCheckbox1">No</label>
+                                  </div>
+                                </td>
+                                </tr>
+
+                                <tr *ngIf="rutina.procedimiento9 != ''" >
+                                  <td>{{rutina.procedimiento9}}</td>
+                                  <td>
+                                    <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" formControlName="rutina9" value="Si">
+                                    <label class="form-check-label" for="inlineCheckbox1">Si</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" formControlName="rutina19" value="NO">
+                                    <label class="form-check-label" for="inlineCheckbox1">No</label>
+                                  </div>
+                                </td>
+                                </tr>
+
+                                <tr *ngIf="rutina.procedimiento10 != ''" >
+                                  <td>{{rutina.procedimiento10}}</td>
+                                  <td>
+                                    <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" formControlName="rutina10"value="Si">
+                                    <label class="form-check-label" for="inlineCheckbox1">Si</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" formControlName="rutina20" value="NO">
+                                    <label class="form-check-label" for="inlineCheckbox1">No</label>
+                                  </div>
+                                </td>
+                                </tr>
+                                <tr *ngIf="rutina.procedimiento11 != ''" >
+                                  <td>{{rutina.procedimiento11}}</td>
+                                  <td>
+                                    <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" formControlName="rutina21"value="Si">
+                                    <label class="form-check-label" for="inlineCheckbox1">Si</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" formControlName="rutina22" value="NO">
+                                    <label class="form-check-label" for="inlineCheckbox1">No</label>
+                                  </div>
+                                </td>
+
+
+                                <tr *ngIf="rutina.procedimiento12 != ''" >
+                                  <td>{{rutina.procedimiento12}}</td>
+                                  <td>
+                                    <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" formControlName="rutina23"value="Si">
+                                    <label class="form-check-label" for="inlineCheckbox1">Si</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" formControlName="rutina24" value="NO">
+                                    <label class="form-check-label" for="inlineCheckbox1">No</label>
+                                  </div>
+                                </td>
+                                </tr>
+
+                                <tr *ngIf="rutina.procedimiento13 != ''" >
+                                  <td>{{rutina.procedimiento13}}</td>
+                                  <td>
+                                    <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" formControlName="rutina25"value="Si">
+                                    <label class="form-check-label" for="inlineCheckbox1">Si</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" formControlName="rutina26" value="NO">
+                                    <label class="form-check-label" for="inlineCheckbox1">No</label>
+                                  </div>
+                                </td>
+                                </tr>
+
+
+                                <tr *ngIf="rutina.procedimiento14 != ''" >
+                                  <td>{{rutina.procedimiento14}}</td>
+                                  <td>
+                                    <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" formControlName="rutina27"value="Si">
+                                    <label class="form-check-label" for="inlineCheckbox1">Si</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" formControlName="rutina28" value="NO">
+                                    <label class="form-check-label" for="inlineCheckbox1">No</label>
+                                  </div>
+                                </td>
+                                </tr>
+
+
+                                <tr *ngIf="rutina.procedimiento15 != ''" >
+                                  <td>{{rutina.procedimiento15}}</td>
+                                  <td>
+                                    <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" formControlName="rutina29"value="Si">
+                                    <label class="form-check-label" for="inlineCheckbox1">Si</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" formControlName="rutina30" value="NO">
+                                    <label class="form-check-label" for="inlineCheckbox1">No</label>
+                                  </div>
+                                </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            
+                          
+                            
+                            <div class="col-md-6">
+                              <label class="form-label">TIEMPO DE EJECUCIÓN</label>
+                              <input type="number" class="form-control" formControlName="tiempoejecucion" >
+                            </div>
+
+                            
+                            <div class="col-md-6">
+                              <label class="form-label">TIEMPO FUERA DE SERVICIO</label>
+                              <input type="number" class="form-control"  formControlName="tiempofuera">
+                            </div>
+
+                            <h5 class="mt-4">REPUESTOS ALMACÉN</h5>
+
+                            <table class="table table-bordered">
+                              <thead>
+                                <tr>
+                                  
+                                  <th scope="col">Referencia</th>
+                                  <th scope="col">Cantidad</th>
+                                  <th scope="col">Descripción</th>
+                                  <th scope="col">Costo</th>
+                                </tr>
+                              </thead>
+                              <tbody  >
+                                <tr *ngFor="let rep of repuesto">
+                             
+                                 
+                                  <td>{{rep[0]}}</td>
+                                  <td>{{rep[1]}}</td>
+                                  <td>{{rep[2]}}</td>
+                                  <td>{{rep[3]}}</td>
+                                </tr>
+                              
+                             
+                              </tbody>
+                            </table>
+                            <h5 class="mt-4">MANTENIMIENTO EXTERNO</h5>
+                            <div class="col-md-6">
+                              <label class="form-label">Descripción</label>
+                              <input type="text" class="form-control"  formControlName="descripcionExterno">
+                            </div>
+                            <div class="col-md-6">
+                              <label class="form-label">Costo</label>
+                              <input type="number" class="form-control"  formControlName="costoExterno">
+                            </div>
+
+                            <div class="col-md-12">
+                              <label >Observaciones:</label>
+                              <textarea class="form-control"  formControlName="observaciones" rows="3"></textarea>
+                            </div>
+
+                            <div class="col-md-6">
+                              <h5>Ingeniero Biomedico</h5>
+                              <label>Nombre</label>
+                              <input type="text" class="form-control"  value="{{nombreBio}}" >
+                              <label>Cargo</label>
+                              <input type="text" class="form-control" value="{{cargoBio}}"  >
+                              <label>Identificacion</label>
+                              <input type="text" class="form-control"  value="{{identificacionBio}}" >
+                              <label>Celular</label>
+                              <input type="text" class="form-control"  value="{{celularBio}}" >
+                              <label>Correo</label>
+                              <input type="text" class="form-control"  value="{{correroBio}}" >
+                            </div>
+                
+                            <div class="col-md-6 mb-4">
+                              
+                          <h5>Jefe de Area</h5>
+                              <label>Nombre</label>
+                              <input type="text" class="form-control" value="{{nombreArea}}" >
+                              <label>Cargo</label>
+                              <input type="text" class="form-control" value="{{cargoArea}}"  >
+                              <label>Identificacion</label>
+                              <input type="text" class="form-control" value="{{identificacionArea}}"  >
+                              <label>Celular</label>
+                              <input type="text" class="form-control" value="{{celularArea}}"  >
+                              <label>Correo</label>
+                              <input type="text" class="form-control" value="{{correroArea}}"  >
+                            </div>
+
+                            
+
+
+                          
+
+
+
+
+                            
+
+            </form>
+
+            
+          </div>
+        </div>
+    </body>
+</html>
+

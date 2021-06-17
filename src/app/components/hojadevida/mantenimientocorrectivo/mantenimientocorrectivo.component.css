@@ -3,3 +3,9 @@ h5{
     background-color:#D4D4D4;
     text-align: center;
 }
+.is-required:after {
+    content: '*';
+    margin-left: 3px;
+    color: red;
+    font-weight: bold;
+  }

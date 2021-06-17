@@ -19,10 +19,17 @@ export class ConsultoriosmedicinaComponent implements OnInit {
   costoMedicinaGenaral4: number;
   costoMedicinaGenaral5: number;
   costoMedicinaGenaral6: number;
+  numeroMedicina1:number;
+  numeroMedicina2:number;
+  numeroMedicina3:number;
+  numeroMedicina4:number;
+  numeroMedicina5:number;
+  numeroMedicina6:number;
+ 
   constructor(private _servicesEquipo: EquiposService,private firestore: AngularFirestore) { }
 
   ngOnInit(): void {
-    this.getCostosMedicina1(),this.getCostosMedicina2(),this.getCostosMedicina3(),this.getCostosMedicina4(),this.getCostosMedicina5(),this.getCostosMedicina6()
+    this.getCostosMedicina1(),this.getCostosMedicina2(),this.getCostosMedicina3(),this.getCostosMedicina4(),this.getCostosMedicina5(),this.getCostosMedicina6(),this. getnumeroMedicina2(),this. getnumeroMedicina1(),this. getnumeroMedicina3(),this. getnumeroMedicina4(),this. getnumeroMedicina5(),this. getnumeroMedicina6()
   }
 
 
@@ -54,6 +61,111 @@ export class ConsultoriosmedicinaComponent implements OnInit {
    
    }
 
+   getnumeroMedicina1(){
+
+    this._servicesEquipo.getEquiposConsultorioMedicina1().subscribe(data =>{
+      this.equipos = [];
+      data.forEach((element: any)=>{
+      
+        this.equipos.push({
+    
+          consultorio:element.payload.doc.consultorio,
+         ...element.payload.doc.data()
+        })    
+      }); 
+      console.log("2",this.equipos)
+      this.numeroMedicina1 = this.equipos.length;
+    })
+    }
+
+    getnumeroMedicina2(){
+
+      this._servicesEquipo.getEquiposConsultorioMedicina2().subscribe(data =>{
+        this.equipos = [];
+        data.forEach((element: any)=>{
+        
+          this.equipos.push({
+      
+            consultorio:element.payload.doc.consultorio,
+           ...element.payload.doc.data()
+          })    
+        }); 
+    
+        this.numeroMedicina2 = this.equipos.length;
+      })
+      }
+
+
+      getnumeroMedicina3(){
+
+        this._servicesEquipo.getEquiposConsultorioMedicina3().subscribe(data =>{
+          this.equipos = [];
+          data.forEach((element: any)=>{
+          
+            this.equipos.push({
+        
+              consultorio:element.payload.doc.consultorio,
+             ...element.payload.doc.data()
+            })    
+          }); 
+      
+          this.numeroMedicina3= this.equipos.length;
+        })
+        }
+
+
+        getnumeroMedicina4(){
+
+          this._servicesEquipo.getEquiposConsultorioMedicina4().subscribe(data =>{
+            this.equipos = [];
+            data.forEach((element: any)=>{
+            
+              this.equipos.push({
+          
+                consultorio:element.payload.doc.consultorio,
+               ...element.payload.doc.data()
+              })    
+            }); 
+        
+            this.numeroMedicina4= this.equipos.length;
+          })
+          }
+          
+        getnumeroMedicina5(){
+
+          this._servicesEquipo.getEquiposConsultorioMedicina5().subscribe(data =>{
+            this.equipos = [];
+            data.forEach((element: any)=>{
+            
+              this.equipos.push({
+          
+                consultorio:element.payload.doc.consultorio,
+               ...element.payload.doc.data()
+              })    
+            }); 
+        
+            this.numeroMedicina5= this.equipos.length;
+          })
+          }
+
+              
+        getnumeroMedicina6(){
+
+          this._servicesEquipo.getEquiposConsultorioMedicina6().subscribe(data =>{
+            this.equipos = [];
+            data.forEach((element: any)=>{
+            
+              this.equipos.push({
+          
+                consultorio:element.payload.doc.consultorio,
+               ...element.payload.doc.data()
+              })    
+            }); 
+        
+            this.numeroMedicina6= this.equipos.length;
+          })
+          }
+
 
 
   getCostosMedicina1(){
@@ -68,8 +180,6 @@ export class ConsultoriosmedicinaComponent implements OnInit {
         })    
       }); 
   this.costoMedicinaGenaral=  this.equipos.map((costos)=>costos.costo).reduce((prev,next)=>prev+next,0)
-  // this.equipos.map((costos)=>costos.consultorio);
-  console.log("medina 1"+this.costoMedicinaGenaral);
     })}
 
     getCostosMedicina2(){
@@ -84,8 +194,6 @@ export class ConsultoriosmedicinaComponent implements OnInit {
           })    
         }); 
     this.costoMedicinaGenaral2=  this.equipos.map((costos)=>costos.costo).reduce((prev,next)=>prev+next,0)
-    // this.equipos.map((costos)=>costos.consultorio);
-    console.log("medina 2"+this.costoMedicinaGenaral2);
       })}
 
       getCostosMedicina3(){
@@ -100,8 +208,6 @@ export class ConsultoriosmedicinaComponent implements OnInit {
             })    
           }); 
       this.costoMedicinaGenaral3=  this.equipos.map((costos)=>costos.costo).reduce((prev,next)=>prev+next,0)
-      // this.equipos.map((costos)=>costos.consultorio);
-      console.log("medina 3"+this.costoMedicinaGenaral3);
         })}
 
 
@@ -117,8 +223,6 @@ export class ConsultoriosmedicinaComponent implements OnInit {
               })    
             }); 
         this.costoMedicinaGenaral4=  this.equipos.map((costos)=>costos.costo).reduce((prev,next)=>prev+next,0)
-        // this.equipos.map((costos)=>costos.consultorio);
-        console.log("medina 4"+this.costoMedicinaGenaral4);
           })}
 
           getCostosMedicina5(){
@@ -133,8 +237,6 @@ export class ConsultoriosmedicinaComponent implements OnInit {
                 })    
               }); 
           this.costoMedicinaGenaral5=  this.equipos.map((costos)=>costos.costo).reduce((prev,next)=>prev+next,0)
-          // this.equipos.map((costos)=>costos.consultorio);
-          console.log("medina 5"+this.costoMedicinaGenaral5);
             })}
 
 
@@ -151,8 +253,7 @@ export class ConsultoriosmedicinaComponent implements OnInit {
                   })    
                 }); 
             this.costoMedicinaGenaral6=  this.equipos.map((costos)=>costos.costo).reduce((prev,next)=>prev+next,0)
-            // this.equipos.map((costos)=>costos.consultorio);
-            console.log("medina 6"+this.costoMedicinaGenaral6);
+         
               })}
 
 }

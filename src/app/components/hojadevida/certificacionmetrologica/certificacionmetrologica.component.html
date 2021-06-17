@@ -1,89 +1,57 @@
-<html>
-    <head>
+<app-navbar></app-navbar>
 
-    </head>
-    <body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="origin-trial" content="TOKEN_GOES_HERE">
+  <meta http-equiv="Cross-Origin-Opener-Policy: same-origin" content="TOKEN_GOES_HERE">
+  <meta http-equiv=" Cross-Origin-Embedder-Policy: require-corp" content="TOKEN_GOES_HERE">
 
-        <div class="card">
-            
-        <div class="container">
-          <h3 class="text-center mt-3">Certificacion Metrólogica</h3> 
-            <h5 class="mt-3">Fecha Calibracion</h5>
-        <form class="row g-3">
-            <div class="col-md-4 ">
-              <label for="inputEmail4" class="form-label mt-2">Dia</label>
-              <input type="email" class="form-control" id="inputEmail4">
-            </div>
-            
-            <div class="col-md-4">
-              <label for="inputPassword4" class="form-label mt-2">Mes</label>
-              <input type="password" class="form-control" id="inputPassword4">
-            </div>
-           
-            <div class="col-4">
-              <label for="inputAddress" class="form-label mt-2">Año</label>
-              <input type="text" class="form-control" id="inputAddress" placeholder="">
-            </div>
-           
-            <hr style="color: #0056b2;" />
-            <h5>Tiempo Fuera de Servicio</h5>
-            <div class="col-md-4 ">
-                <label for="inputEmail4" class="form-label mt-2">Dia</label>
-                <input type="email" class="form-control" id="inputEmail4">
-              </div>
-              
-              <div class="col-md-4">
-                <label for="inputPassword4" class="form-label mt-2">Mes</label>
-                <input type="password" class="form-control" id="inputPassword4">
-              </div>
-             
-              <div class="col-4">
-                <label for="inputAddress" class="form-label mt-2">Año</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="">
-              </div>
 
-            <hr style="color: #0056b2;" />
-            <h5>Variables de Medicion</h5>
+  <title>Biosoftware</title>
+</head>
+<body>
 
-            <div class="col-md-6 ">
-                <label for="inputEmail4" class="form-label mt-2">Variable 1</label>
-                <input type="email" class="form-control" id="inputEmail4">
-              </div>
-              <div class="col-md-6">
-                <label for="inputPassword4" class="form-label mt-2">Variable 2</label>
-                <input type="password" class="form-control" id="inputPassword4">
-              </div>
-              <div class="col-6">
-                <label for="inputAddress" class="form-label">Variable 3</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="">
-              </div>
-              <div class="col-6">
-                <label for="inputAddress2" class="form-label">Variable 4</label>
-                <input type="text" class="form-control" id="inputAddress2" placeholder="">
-              </div>
-              <div class="col-md-6">
-                <label for="inputCity" class="form-label">Variable 5</label>
-                <input type="text" class="form-control" id="inputCity">
-              </div>
-              <div class="col-md-6">
-                <label for="inputCity" class="form-label">Variable 6</label>
-                <input type="text" class="form-control" id="inputCity">
-              </div>
+  <h1 class="text-center mt-4">Certificado de Metrologia</h1>
+  <div class="container mt-4">
+  
+
+
+  <section fxLayout="column" fxLayoutAlign="space-around center" fxFlex="100" fxLayoutGap="20px">
+   
+    <div class="label" fxFlex="30">Archivo</div>
+    <div fxFlex="30"><input type="file" name="file" (change)="onFileSelect($event)"/></div>
+    <div fxFlex="30">
+      <button mat-flat-button color="primary" (click)="uploadFile()">Cargar</button>
+    </div>
+    <mat-progress-bar mode="determinate" [value]="uploadPercent | async"></mat-progress-bar>
+    <div class="label" fxFlex="30" *ngIf="completed">Archivo cargado</div>
+  </section>
+ 
+</div>
+
+<div class="container mr-4 text-center">
+          
+  <div class="row">
+      <div class="col-6">
+          
         
-
-              <hr style="color: #0056b2;" />
-              <h5>Certificado </h5>
-
-              <div class="col-md-6 ">
-                <label for="inputEmail4" class="form-label mt-2">Descargar Archivo</label>
-                <input type="email" class="form-control" id="inputEmail4">
-              </div>
+            <img src="{{url}}">
+          
               
-           
-     
-          </form>
-          </div>
-        </div>
-    </body>
+         
+      </div>
+
+  </div>
+  </div>
+<div class="center">
+
+</div>
+
+
+</body>
 </html>
 

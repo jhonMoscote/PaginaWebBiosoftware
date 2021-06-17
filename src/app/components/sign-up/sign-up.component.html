@@ -1,0 +1,47 @@
+<nav class="navbar navbar-primary bg-primary">
+  <h1 >BIOSOFT</h1>
+  <img src="assets/logo.png">
+  <!-- Navbar content -->
+</nav>
+<div class="container mt-4">
+
+
+<div class="displayTable">
+    <div class="displayTableCell">
+  
+      <div class="auth-block">
+        <h3>Registrarse</h3>
+  
+        <div class="form-group">
+          <input type="email" class="form-control" placeholder="Correo Electronico" #userEmail required>
+        </div>
+  
+        <div class="form-group">
+          <input type="password" class="form-control" placeholder="Contraseña" #userPwd required>
+        </div>
+  
+        <div class="form-group">
+          <input type="button" class="btn btn-primary" value="Registrarse" (click)="AuthService.SignUp(userEmail.value, userPwd.value)">
+        </div>
+  
+        <div class="form-group">
+          <span class="or"><span class="orInner">O</span></span>
+        </div>
+  
+        <!-- Continue with Google -->
+        <div class="form-group">
+          <button type="button" class="btn btn-openid btn-primary" (click)="AuthService.GoogleAuth()">
+            <i class="fab fa-google-plus-g"></i>
+            Continuar con Google
+          </button>
+        </div>
+  
+        <!-- Continue with Facebook -->
+       
+  
+      <div class="redirectToLogin">
+        <span>Ya tienes una cuenta? <a class="redirect" routerLink="/sign-in">Iniciar Sesion</a></span>
+      </div>
+    </div>
+  
+  </div>

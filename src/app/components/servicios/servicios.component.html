@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <html>
   <head>
 
@@ -13,65 +14,70 @@
                   <thead>
                     <tr>
                       <th >Servicios</th>
-                      <th >Costo Mantenimiento</th>
+                      <th>Número de Equipos</th>
+                      <th>Costo Mantenimiento</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td> <a href="../consultoriosmedicinageneral/">MEDICINA GENERAL</a></td>
-                      <td>{{  costoMedicinaGenaral+
-                        costoMedicinaGenaral2+costoMedicinaGenaral3+
-                        costoMedicinaGenaral4+
-                        costoMedicinaGenaral5+
-                        costoMedicinaGenaral6}}</td>
+                      <td> <a routerLink= "/consultoriosmedicinageneral">MEDICINA GENERAL</a></td>
+                      <td class="text-center">{{numeroMedicina}}</td>
+                      <td>{{costoTotalMedicinaGeneral | currency}}</td>
                     
                     </tr>
                     <tr>
-                      <td ><a href="../consultoriosenfermeria/">ENFERMERÍA</a></td>
-                      <td>{{ costoEnfermeria + costoEnfermeria2}}</td>
+                      <td ><a routerLink="/consultoriosenfermeria">ENFERMERÍA</a></td>
+                      <td class="text-center">{{numeroEnfermeria}}</td>
+                      <td>{{costoTotalEnfermeria| currency }}</td>
+                    </tr>
+                 
+                    <tr>
+                      <td><a routerLink="/consultoriosodontologia">ODONTOLOGÍA </a></td>
+                      <td class="text-center">{{numeroOdontologia}}</td>
+                      <td>{{costoTotalOdontologia | currency}}</td>
                     </tr>
 
                     <tr>
-                      <td><a href="../consultoriosodontologia/">ODONTOLOGÍA </a></td>
-                      <td>{{costoOdontologia+
-                        costoOdontologia2+
-                        costoOdontologia3}}</td>
+                      <td><a routerLink="/urgencias">PSICOLOGÍA</a></td>
+                      <td class="text-center">{{numeroPsicologia}}</td>
+                      <td>{{costoPsicologiaTotal | currency}}</td>
                     </tr>
 
                     <tr>
-                      <td><a href="../urgencias/">PSICOLOGÍA</a></td>
-                      <td>{{costoPsicologia}}</td>
-                    </tr>
-
-                    <tr>
-                      <td><a href="../consultaprioritaria/">CONSULTA PRIORITARIA</a></td>
-                      <td>{{costoConsultaPrioritaria}}</td>
+                      <td><a routerLink="/consultaprioritaria">CONSULTA PRIORITARIA</a></td>
+                      <td class="text-center">{{numeroConsulta}}</td>
+                      <td>{{costoConsultaPrioritariaTotal | currency}}</td>
                     </tr>
 
                     
                     <tr>
-                      <td><a href="../laboratorioclinico/">LABORATORIO CLINICO</a></td>
-                      <td>{{costoLaboratorio}}</td>
+                      <td><a routerLink="/laboratorioclinico">LABORATORIO CLINICO</a></td>
+                      <td class="text-center">{{numeroLaboratorio}}</td>
+                      <td>{{costoLaboratorioTotal | currency}}</td>
                     </tr>
 
                     <tr>
-                      <td><a href="../serviciofarmaceutico/">SERVICIO FARMACEUTICO</a></td>
-                      <td>{{costosFarmaceuticos}}</td>
+                      <td><a routerLink="/serviciofarmaceutico">SERVICIO FARMACEUTICO</a></td>
+                      <td class="text-center">{{numeroFarmaceutico}}</td>
+                      <td>{{costosFarmaceuticosTotal | currency}}</td>
                     </tr>
 
                     <tr>
-                      <td><a href="../tomainterpretacion/"> TOMA E INTERPRETACION DE RADIOGRAGIAS ODONTOLÓGICAS</a></td>
-                      <td>{{equiposToma}}</td>
+                      <td><a routerLink="/tomainterpretacion"> TOMA E INTERPRETACION DE RADIOGRAGIAS ODONTOLÓGICAS</a></td>
+                      <td class="text-center">{{numeroTOma}}</td>
+                      <td>{{costoTomaTotal | currency}}</td>
                     </tr>
 
                     <tr>
-                      <td><a href="../detenciontemprana/">DETENCION TEMPRANA - ALTERACIONES DEL CRECIMIENTO</a></td>
-                      <td>{{costoDetencion}}</td>
+                      <td><a routerLink="/detenciontemprana">DETENCION TEMPRANA - ALTERACIONES DEL CRECIMIENTO</a></td>
+                      <td class="text-center">{{numeroDetencion}}</td>
+                      <td>{{costoDetencionTotal | currency}}</td>
                     </tr>
 
                    
                  
                   </tbody>
+                  <button class="mt-4" mat-raised-button color="primary" routerLink="/registrarequipo">Registrar Equipo</button>
                 </table>
   
           </div>

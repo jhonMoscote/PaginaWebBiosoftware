@@ -12,9 +12,14 @@ export class Consultoriomedicina1Component implements OnInit {
   
   total:number;
  equipos: any[]=[];
+ equipos2: any[]=[];
  equiposMedicina: any[]=[];
  costoMedicinaGenaral: number;
- 
+ clasificacion: any[]=[];
+ disponible: string;
+ id: string| null
+ clasificacions:string;
+ estado: boolean;
 
   constructor( private _equiposServices: EquiposService, private firestore: AngularFirestore) {
       
@@ -26,20 +31,33 @@ export class Consultoriomedicina1Component implements OnInit {
   }
   getEquipo(){
     this._equiposServices.getEquiposConsultorioMedicina1().subscribe(data => {
+     // this.clasificacion= data.payload.data()['clasificacionRiesgo'];
       this.equipos = [];
       data.forEach((element: any)=>{
-        //console.log(element.payload.doc.id);
-        //console.log(element.payload.doc.data());
         this.equipos.push({
           id: element.payload.doc.id,
           ...element.payload.doc.data()
         })
       });
-      console.log(this.equipos);
+
+      this.clasificacion = this.equipos.map((id)=>id.clasificacionRiesgo)
+ 
+   
+     
 
     })
+   
 
 }
+
+
+
+
+
+
+
+
+
 
 
 getMedicina1(){
@@ -59,8 +77,6 @@ getMedicina1(){
       })    
     }); 
 this.costoMedicinaGenaral=  this.equiposMedicina.map((costos)=>costos.costo).reduce((prev,next)=>prev+next,0)
-// this.equipos.map((costos)=>costos.consultorio);
-console.log("medina 1"+this.costoMedicinaGenaral);
   })}
 
 

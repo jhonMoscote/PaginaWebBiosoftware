@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <html>
     <head>
 
@@ -7,23 +8,25 @@
         <div class="card">
             
         <div class="container">
-          <h3 class="text-center mt-3">Hoja de Vida</h3> 
+          <h1 class="text-center mt-3">Hoja de Vida</h1> 
             <h5 class="mt-3">DATOS GENERALES</h5>
         <form  [formGroup]="mostrarDatos" class="row g-3">
+          
+         
 
-          <div class="col-md-4 ">
+          <div class="col-4 ">
             <label  class="form-label ">Nombre Equipo</label>
             <input type="text" class="form-control"  formControlName="nombreEquipo">
           </div>
 
           <div class="col-md-4 ">
             <label  class="form-label ">Identificación del Protocolo</label>
-            <input type="text" class="form-control"  formControlName="alimentacion">
+            <input type="text" class="form-control"  formControlName="identificacionProtocolo">
           </div>
           
           <div class="col-md-4 ">
             <label  class="form-label ">Ubicación</label>
-            <input type="text" class="form-control"  formControlName="ubicacioncon">
+            <input type="text" class="form-control"  formControlName="consultorio">
           </div>
 
 
@@ -52,7 +55,7 @@
           </div>
 
           <div class="col-md-3">
-            <label  class="form-label mt-2">Periocidad de Tiempo</label>
+            <label  class="form-label mt-2">Periocidad</label>
             <input type="text" class="form-control" formControlName="periodicidadTiempo">
           </div>
 
@@ -97,28 +100,25 @@
 
           <div class="col-6">
                 <label  class="form-label">clasificación Biomédica</label>
-                <input type="text" class="form-control" formControlName="clasificacionRiesgo" >
+                <input type="text" class="form-control" formControlName="clasificacionBiomedica" >
           </div>
+          <div class="col-6">
+            <label  class="form-label">CLASIFICACIÓN POR RIESGO</label>
+            <input type="text" class="form-control" formControlName="clasificacionRiesgo" >
+      </div>
 
           <div class="col-6">
             <label  class="form-label">Fecha Adquisición</label>
             <input type="text" class="form-control" formControlName="fechaAdquisicion" >
           </div>
 
-          <div class="col-6">
-            <label  class="form-label">Diagnostico</label>
-            <input type="text" class="form-control" formControlName="diagnostico" >
-          </div>
+        
 
           <div class="col-6">
             <label  class="form-label">Fecha de Instalación</label>
             <input type="text" class="form-control" formControlName="fechaInstalacion" >
           </div>
 
-          <div class="col-4">
-            <label  class="form-label">Prevención</label>
-            <input type="text" class="form-control" formControlName="prevencion" >
-          </div>
 
           <div class="col-4">
             <label  class="form-label">Compra</label>
@@ -130,10 +130,7 @@
             <input type="text" class="form-control" formControlName="donacion" >
           </div>
 
-          <div class="col-4">
-            <label  class="form-label">Rehabilitacion</label>
-            <input type="text" class="form-control" formControlName="rehabilitacion" >
-          </div>
+        
 
           <div class="col-4">
             <label  class="form-label">Fabricante</label>
@@ -142,13 +139,10 @@
 
           <div class="col-4">
             <label  class="form-label">Dirección Fabricante</label>
-            <input type="text" class="form-control" formControlName="fabricante" >
+            <input type="text" class="form-control" formControlName="direccionFabricante" >
           </div>
 
-          <div class="col-4">
-            <label  class="form-label">Analisis Laboratorio Clinico</label>
-            <input type="text" class="form-control" formControlName="analisisClinico" >
-          </div>
+        
 
           <div class="col-4">
             <label  class="form-label">Registro Sanitario</label>
@@ -160,15 +154,14 @@
             <input type="text" class="form-control" formControlName="vidaUtil" >
           </div>
 
-          <div class="col-6">
-            <label  class="form-label">Tratamiento y Mantenimiento de la Vida</label>
-            <input type="text" class="form-control" formControlName="ttoMto" >
-          </div>
+        
 
           <div class="col-6">
             <label  class="form-label">Manual de Operación</label>
             <input type="text" class="form-control" formControlName="manuelOperacion" >
           </div>
+
+        
 
           
 
@@ -222,7 +215,7 @@
 
               <div class="col-md-4">
                 <label  class="form-label">Rango de Medición</label>
-                <input type="text" class="form-control"  formControlName="frecuencia">
+                <input type="text" class="form-control"  formControlName="rangoMedicion">
               </div>
 
               <div class="col-md-4">
@@ -286,13 +279,13 @@
               <h5>GESTION DE RIESGO</h5>
 
               <div class="col-md-6">
-                <label  class="form-label mt-2">PROBABILIDAD DE EVENTOS ADVERSOS</label>
-                <textarea type="text" class="form-control" formControlName="eventosAdversos"></textarea>
+                <label  class="form-label mt-2 mb-4">PROBABILIDAD DE EVENTOS ADVERSOS</label>
+                <textarea type="text" class="form-control mb-4" formControlName="eventosAdversos"></textarea>
               </div>
 
               <div class="col-md-6">
-                <label  class="form-label mt-2">ACCIONES PREVENTIVAS</label>
-                <textarea type="text" class="form-control" formControlName="preventivas"></textarea>
+                <label  class="form-label mt-2 mb-4">ACCIONES PREVENTIVAS</label>
+                <textarea type="text" class="form-control mb-4" formControlName="preventivas"></textarea>
               </div>
 
               <br>

@@ -42,12 +42,12 @@ export class FallasEquipoComponent implements OnInit {
 
 
   consultaCorrectivo(){
- return this.firestore.collection("correctivo", ref => ref.where("id" ,"==", this.id ).where( "criteriofalla" ,"==", "Falla del Equipo" )).snapshotChanges();
+ return this.firestore.collection("correctivo", ref => ref.where("ids" ,"==", this.id ).where( "criteriofalla" ,"==", "Falla del Equipo" )).snapshotChanges();
 
   
   }
 conteoPersonal(){
-return this.firestore.collection("correctivo", ref => ref.where("id" ,"==", this.id ).where( "criteriofalla" ,"==", "Falla del Equipo")).snapshotChanges();
+return this.firestore.collection("correctivo", ref => ref.where("ids" ,"==", this.id ).where( "criteriofalla" ,"==", "Falla del Equipo")).snapshotChanges();
 
 //var  query = rr.where("capital", "==", true);
  
@@ -57,15 +57,12 @@ return this.firestore.collection("correctivo", ref => ref.where("id" ,"==", this
     consultaCorrectivo().subscribe(data => {
       this.mantenimientos = [];
       data.forEach((element: any)=>{
-        //console.log(element.payload.doc.id);
-        //console.log(element.payload.doc.data());
         this.mantenimientos.push({
 
           id: element.payload.doc.id,
           ...element.payload.doc.data()
         })
       });
-      console.log("prueba"+this.mantenimientos);
 
     })
   }
@@ -75,19 +72,11 @@ return this.firestore.collection("correctivo", ref => ref.where("id" ,"==", this
     conteoPersonal().subscribe(data => {
       this.mantenimientoss = [];
       data.forEach((element: any)=>{
-        //console.log(element.payload.doc.id);
-        //console.log(element.payload.doc.data());
         this.mantenimientoss.push({
-         
-
-          
           id: element.payload.doc.id,
           ...element.payload.doc.data()
         })
       });
-     
-      console.log(this.mantenimientoss);
-
     })
   }
 }

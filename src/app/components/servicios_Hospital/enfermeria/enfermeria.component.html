@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <html>
   <head>
 
@@ -20,7 +21,7 @@
             <tbody>
               <tr *ngFor="let equipo of equipos ">
                 
-                <td><a [routerLink] = "['/menuequipo/', equipo.id]">{{equipo.nombreEquipo}}</a></td>
+                <td><a [routerLink] = "['/menuequipo', equipo.id]">{{equipo.nombreEquipo}}</a></td>
                 <td>{{equipo.servicio}}</td>
                 <td>{{equipo.estado}}</td>
                 <td> {{equipo.serie}}</td>

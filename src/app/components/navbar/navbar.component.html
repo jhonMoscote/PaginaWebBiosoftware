@@ -1,36 +1,45 @@
-<nav class="navbar navbar-dark bg-primary">
-    <div class="container-fluid">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
       <img src="assets/logo.png">
-      <span class="navbar-brand mb-0 h1">  <a class="navbar-brand " href="../inicio">Biosoft</a></span>
-      <a class="navbar-brand " href="../inicio">Biosoft</a>
-    </div>
-  </nav>
-  <head>
-  
-  </head>
-  <nav class="navbar  navbar-expand-lg  text-center">
-    
-     
-      <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-brand mb-0 h1">  <a class="navbar-brand  " routerLink="../inicio">Biosoftware</a></span>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse text-center" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-item nav-link  active ml-5 mr-5 " href="../inicio" >Inicio <span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link" href="../servicios" >Servicios</a>
-          <a class="nav-item nav-link" href="../almacen">Almacen</a>
-          <a class="nav-item nav-link " href="../equipos">Equipos</a>
-          <a class="nav-item nav-link" href="../inspecion">Inspeccion, Vigilancia y Control de Mantenimiento de EB</a>
-        </div>
-      </div>
-  
-  
-      <form class="navbar-search pull-right pl-8">
-          <input  type="text" class="search-query ml-10" placeholder="Buscar " pr-4>
-        </form>
-  
-  
       
-     
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-5 mr-5">
+          <li class="nav-item active">
+            <a class="nav-item nav-link  active ml-5 mr-5 " routerLink="/inicio" >Inicio <span class="sr-only">(current)</span></a>
+  
+          </li>
+          <li class="nav-item">
+            <a class="nav-item nav-link"   routerLink= "/servicios">Servicios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-item nav-link" routerLink= "/almacen">Almacen</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-item nav-link " routerLink= "/equipos">Equipos</a>
+          </li>
         
+          <li class="nav-item">
+            <a class="nav-item nav-link" routerLink= "/inspecion">Inspeccion, Vigilancia y Control de Mantenimiento de EB</a>
+          </li>
+          <li class="nav-item" *ngIf="isAdmin == true" >
+            <a class="nav-item nav-link" routerLink= "/listausuarios">Lista De Usuarios</a>
+          
+          </li>
+        
+        </ul>
+
+          <a class="nav-item ml-auto" (click)="AuthService.SignOut()">
+          <i class="float-right fas fa-sign-out-alt ml-auto ">Terminar Sesión</i>
+        </a>
+      </div>
     </nav>
+
+
+
+  
+
+   

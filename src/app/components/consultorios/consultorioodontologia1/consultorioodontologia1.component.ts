@@ -27,14 +27,12 @@ export class Consultorioodontologia1Component implements OnInit {
      this._equiposServices.getEquiposConsultorioOdontologia1().subscribe(data => {
        this.equipos = [];
        data.forEach((element: any)=>{
-         //console.log(element.payload.doc.id);
-         //console.log(element.payload.doc.data());
          this.equipos.push({
            id: element.payload.doc.id,
            ...element.payload.doc.data()
          })
        });
-       console.log(this.equipos);
+
  
      })
  
@@ -57,8 +55,9 @@ export class Consultorioodontologia1Component implements OnInit {
       })    
     }); 
 this.costoOdontologia=  this.equiposOdontologia.map((costos)=>costos.costo).reduce((prev,next)=>prev+next,0)
-// this.equipos.map((costos)=>costos.consultorio);
-console.log("medina 1"+this.costoOdontologia);
+
+this.costoOdontologia = this.costoOdontologia*1;
+
   })}
 
 }

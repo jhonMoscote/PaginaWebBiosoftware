@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <html>
     <head>
 
@@ -58,18 +59,14 @@
             <h5 class="mt-4">DATOS DE LA ASISTENCIA</h5>
             <form class="row g-3"  [formGroup]="createCorrectivo" (ngSubmit)="agregarMantenimiento()">
             <div class="form-group">
-              <label for="exampleFormControlSelect1">Asistencia</label>
-              <select class="form-control"  formControlName="asistencia" >
+              <label class="is-required">Asistencia</label>
+              <select class="form-control"  formControlName="asistencia"  required>
                 <option>Correctivo</option>
               </select>
             </div>
-            <br>
-            <br>
-
-            <br>
-            <br>
+        
            
-            <h5>MANTENIMIENTO CORRECTIVO</h5>
+            <h5 class="mt-4">MANTENIMIENTO CORRECTIVO</h5>
 
             <div class="col-md-12 ">
               <label  class="form-label ">FALLA REPORTADA</label>
@@ -81,6 +78,7 @@
               <select class="form-control"  formControlName="criteriofalla" >
                 <option>Falla del Personal</option>
                 <option>Falla del Equipo</option>
+                <option>Falla Instalación Eléctrica</option>
               </select>
             </div>
 
@@ -111,46 +109,19 @@
             <br>
             <br>
 
-            <h5>REPUESTOS UTILIZADOS</h5>
+            <h5>REPUESTOS EXTERNOS</h5>
+            <app-repuestos></app-repuestos>
+          
+            <h5 class="mt-4">MANTENIMIENTO EXTERNO</h5>
+            <div class="col-md-6">
+              <label class="form-label">Descripción</label>
+              <input type="text" class="form-control"  formControlName="descripcionExterno">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Costo</label>
+              <input type="number" class="form-control"  formControlName="costoExterno">
+            </div>
 
-            <table class="table table-bordered">
-              <thead>
-                <tr>
-
-                  <th scope="col">REFERENCIA</th>
-                  <th scope="col">CANTIDAD</th>
-                  <th scope="col">DESCRIPCION</th>
-                  <th scope="col">CANTIDAD DISPONIBLE</th>
-                  <th scope="col">Costo</th>
-                 
-                </tr>
-              </thead>
-              <tbody *ngFor="let repuesto of repuestos">
-             <tr>
-   
-                <td>{{repuesto.nombre}}</td>
-                  <td> {{repuesto.costo}}</td>
-                  <td>{{repuesto.descripcion}}</td>
-                  <td> {{repuesto.cantidadRestante}}</td>
-                  <td>{{repuesto.cantidadInicial}}</td> 
-                </tr>
-                <tr>
-                 
-                  <td > <input type="text" class="form-control"   formControlName="nombre" name="nombre"></td>
-                  <td> <input type="number" class="form-control"   formControlName="cantidad" ></td>
-                  <td> <input type="text" class="form-control"   formControlName="descripcion" ></td>
-                  <td> <input type="number" class="form-control"   formControlName="cantidadDisponible" ></td>
-                  <td> <input type="number" class="form-control"   formControlName="costo" ></td>
-      
-                </tr>
-               
-              </tbody>
-            </table>
-
-      
-
-            
-  
 
           
           
@@ -159,10 +130,38 @@
                 <textarea class="form-control"  formControlName="observaciones" rows="3"></textarea>
               </div>
 
+              <div class="col-md-6">
+                <label class="form-label">Firma Biomedico</label>
+                <input type="password" class="form-control"  [(ngModel)]= "contraBiomedico" formControlName="contraBiomedico" (keyup)="validarBiomedico()" required>
+                <div *ngIf="condicionBiomedico == false">
+                  <span class="input-group-text" id="basic-addon1"><P style="color: red;">Contraseña Incorrecta</P></span>
+                
+                </div>
+                <div *ngIf="condicionBiomedico == true">
+                  <span class="input-group-text" id="basic-addon1"><P style="color: green;">Contraseña Correcta</P></span>
+                
+                </div>
+              </div>
+  
+              <div class="col-md-6">
+                <label class="form-label">Firma Jefe De Area</label>
+                <input type="password" class="form-control" [(ngModel)]= "contraArea"  formControlName="contraArea"  (keyup)="validarArea()" required>
+                <div *ngIf="condicionArea == false">
+                  <span class="input-group-text" id="basic-addon1"><P style="color: red;">Contraseña Incorrecta</P></span>
+                
+                </div>
+                <div *ngIf="condicionArea == true">
+                  <span class="input-group-text" id="basic-addon1"><P style="color: green;">Contraseña Correcta</P></span>
+                
+                </div>
+              </div>
+
               <div class="mt-3 mr-3">
-                <button type="submit" class="btn btn-secondary btn-lg mr-12">Registrar Mantenimiento Correctivo</button>
+                <button type="submit" class="btn btn-primary btn-lg mr-12" [disabled]="createCorrectivo.invalid" >Registrar Mantenimiento Correctivo</button>
               
             </div>
+
+           
           </form>
           </div>
         </div>

@@ -25,15 +25,11 @@ export class RiesgomedioComponent implements OnInit {
     this._equiposServices.getEquiposAlmacenRiesgoMedio().subscribe(data => {
       this.equipos = [];
       data.forEach((element: any)=>{
-        //console.log(element.payload.doc.id);
-        //console.log(element.payload.doc.data());
         this.equipos.push({
           id: element.payload.doc.id,
           ...element.payload.doc.data()
         })
       });
-      console.log(this.equipos);
-
     })
   }
 

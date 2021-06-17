@@ -1,0 +1,190 @@
+<app-navbar></app-navbar>
+<html>
+    <head>
+
+    </head>
+    <body>
+
+        <div class="card">
+            
+        <div class="container">
+
+          <h1 class="text-center mt-3">Reporte de Baja</h1> 
+         
+
+          
+      
+
+
+          
+           
+            <form class="row g-3" [formGroup] = "mostrarBaja"  >
+                <h5 class="mt-4"></h5>
+
+                <div class="col-md-4">
+                    <label  class="form-label ">FECHA</label>
+                    <input type="date" class="form-control"   formControlName="fecha" >
+                </div>
+
+                <div class="col-md-4">
+                    <label  class="form-label ">HORA</label>
+                    <input type="time" class="form-control"   formControlName="hora" >
+                </div>
+
+                <div class="col-md-4">
+                    <label  class="form-label "> BAJA NUMERÓ</label>
+                    <input type="number" class="form-control"   formControlName="bajanumero" >
+                </div>
+
+           
+            <h5 class="mt-4">SERVICIO Y/O AMBIENTE QUE SOLICITA BAJA</h5>
+
+            <div class="col-md-6">
+              <label  class="form-label ">SERVICIO</label>
+              <input type="text" class="form-control"  formControlName="servicio" >
+            </div>
+
+
+            <div class="col-md-6">
+              <label  class="form-label ">TELEFONO Y/O EXTENCION </label>
+              <input type="text" class="form-control"  formControlName="telefonoextension" >
+            </div>
+
+            <div class="col-md-6 ">
+              <label  class="form-label ">AMBIENTE</label>
+              <input type="text" class="form-control"   formControlName="ambiente" >
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">PERSONA RESPONSABLE DEL USO </label>
+              <input type="text" class="form-control" formControlName="personaluso" >
+            </div>
+
+            
+  
+
+            <h5 class="mt-4">MOTIVO POR EL QUE SOLICITA LA BAJA </h5>
+
+            <div class="col-md-12">
+                <textarea type="text" class="form-control" formControlName="motivobaja"></textarea>
+              </div>
+
+         
+          
+     
+            <h5 class="mt-4">DATOS DEL EQUIPO O INSTRUMENTO </h5>
+            <div class="col-md-6">
+              <label class="form-label">EQUIPO</label>
+              <input type="text" class="form-control"   formControlName="nombreEquipo">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">MARCA</label>
+              <input type="text" class="form-control"  formControlName="marca">
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">MODELO</label>
+                <input type="text" class="form-control" formControlName="modelo">
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">N. DE SERIE</label>
+                <input type="number" class="form-control"  formControlName="serie">
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">N. DE ACTIVO</label>
+                <input type="number" class="form-control"  formControlName="nactivo">
+            </div>
+
+            <h5 class="mt-4">CONDICIONES DE BAJA DEL EQUIPO O INSTRUMENTAL   </h5>
+          
+            <div class="col-md-12">
+                <label class="form-label">REPORTA</label>
+                <textarea type="text" class="form-control" formControlName="reporta"></textarea>
+            </div>
+
+            <h5 class="mt-4">EN CASO DE NO PROCEDER BAJA DE EQUIPO O INSTRUMENTAL  </h5>
+            <div class="col-md-12">
+                <label class="form-label">MOTIVO POR EL QUE NO SE PROCEDE BAJA DE EQUIPO O INSTRUMENTAL</label>
+                <textarea type="text" class="form-control" formControlName="motivobaja"></textarea>
+            </div>
+
+            <div class="col-md-12 mb-4">
+                <label  class="form-label mt-2">OBSERVACIONES</label>
+                <textarea type="text" class="form-control" formControlName="observaciones"></textarea>
+              </div>
+
+             
+        
+
+           
+
+            
+            <div class="col-md-3">
+              <h5>CONTROL INTERNO</h5>
+              <label>Nombre</label>
+              <input type="text" class="form-control"  value="{{nombreInterno}}" >
+              <label>Cargo</label>
+              <input type="text" class="form-control" value="{{cargoInterno}}"  >
+              <label>Identificacion</label>
+              <input type="text" class="form-control"  value="{{identificacionInterno}}" >
+              <label>Celular</label>
+              <input type="text" class="form-control"  value="{{celularInterno}}" >
+              <label>Correo</label>
+              <input type="text" class="form-control"  value="{{correroInterno}}" >
+            </div>
+
+            <div class="col-md-3">
+              <h5>INGENIERO BIOMÉDICO</h5>
+              <label>Nombre</label>
+              <input type="text" class="form-control"  value="{{nombreBio}}" >
+              <label>Cargo</label>
+              <input type="text" class="form-control" value="{{cargoBio}}"  >
+              <label>Identificacion</label>
+              <input type="text" class="form-control"  value="{{identificacionBio}}" >
+              <label>Celular</label>
+              <input type="text" class="form-control"  value="{{celularBio}}" >
+              <label>Correo</label>
+              <input type="text" class="form-control"  value="{{correroBio}}" >
+            </div>
+
+            <div class="col-md-3">
+              <h5>RESPONSABLE DE AREA</h5>
+              <label>Nombre</label>
+              <input type="text" class="form-control" value="{{nombreArea}}" >
+              <label>Cargo</label>
+              <input type="text" class="form-control" value="{{cargoArea}}"  >
+              <label>Identificacion</label>
+              <input type="text" class="form-control" value="{{identificacionArea}}"  >
+              <label>Celular</label>
+              <input type="text" class="form-control" value="{{celularArea}}"  >
+              <label>Correo</label>
+              <input type="text" class="form-control" value="{{correroArea}}"  >
+            </div>
+
+            <div class="col-md-3 mb-4">
+              
+          <h5>ALMACÉN E INVENTARIO</h5>
+              <label>Nombre</label>
+              <input type="text" class="form-control" value="{{nombreAlmacen}}" >
+              <label>Cargo</label>
+              <input type="text" class="form-control" value="{{cargoAlmacen}}"  >
+              <label>Identificacion</label>
+              <input type="text" class="form-control" value="{{identificacionAlmacen}}"  >
+              <label>Celular</label>
+              <input type="text" class="form-control" value="{{celularAlmacen}}"  >
+              <label>Correo</label>
+              <input type="text" class="form-control" value="{{correroAlmacen}}"  >
+            </div>
+
+       
+
+            
+          
+
+
+           
+          </form>
+          </div>
+        </div>
+    </body>
+</html>
+
