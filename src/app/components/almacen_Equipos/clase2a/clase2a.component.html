@@ -25,8 +25,9 @@
               </tr>
             </thead>
             <tbody>
-              <tr class="text" *ngFor="let equipo of equipos">
               
+              <tr class="text" *ngFor="let equipo of equipos"  >
+                
                 <td><a [routerLink]= "['/equipomantenimiento/', equipo.id]"> {{equipo.nombreEquipo}}</a></td>
                 <td>{{equipo.servicio}}</td>
                 <td>{{equipo.marca}}</td>
@@ -36,9 +37,11 @@
                 <td>{{equipo.periodicidadTiempo}}</td>
                 <td>{{equipo.ubicacionEquipo}}</td>
                 <td>{{equipo.consultorio}}</td>
-                <td>{{equipo.vidaUtil}}</td>
-
+                <td>{{equipo.vidaUtil}} Años</td>
+            
+              
               </tr>
+           
             </tbody>
 
           </table>

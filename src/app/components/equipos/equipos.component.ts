@@ -16,11 +16,11 @@ export class EquiposComponent implements OnInit {
   equiposBaja: Observable<any[]>;
 
   constructor(firestore: AngularFirestore) {
-    this.equiposClase1 = firestore.collection('equipos', ref => ref.where("clasificacionRiesgo","==", "CLASE I")).valueChanges();
-    this.equiposClase2A = firestore.collection('equipos', ref => ref.where("clasificacionRiesgo","==", "CLASE II A")).valueChanges();
-    this.equiposClase2B= firestore.collection('equipos', ref => ref.where("clasificacionRiesgo","==", "CLASE II B")).valueChanges();
-    this.equiposClase3= firestore.collection('equipos', ref => ref.where("clasificacionRiesgo","==", "CLASE III")).valueChanges();
-    this.equiposBaja= firestore.collection('equipos', ref => ref.where('clasificacionRiesgo', '==', 'Dado de Baja')).valueChanges();
+    this.equiposClase1 = firestore.collection('equipos', ref => ref.where("clasificacionRiesgo","==", "CLASE I").where("baja","==","no")).valueChanges();
+    this.equiposClase2A = firestore.collection('equipos', ref => ref.where("clasificacionRiesgo","==", "CLASE II A").where("baja","==","no")).valueChanges();
+    this.equiposClase2B= firestore.collection('equipos', ref => ref.where("clasificacionRiesgo","==", "CLASE II B").where("baja","==","no")).valueChanges();
+    this.equiposClase3= firestore.collection('equipos', ref => ref.where("clasificacionRiesgo","==", "CLASE III").where("baja","==","no")).valueChanges();
+    this.equiposBaja= firestore.collection('equipos', ref => ref.where('baja', '==', 'si')).valueChanges();
   } 
 
   ngOnInit(): void {

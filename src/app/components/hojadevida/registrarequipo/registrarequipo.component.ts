@@ -64,6 +64,7 @@ export class RegistrarequipoComponent implements OnInit {
       eventosAdversos: [''],
       preventivas:[''],
       consultorio: [''],
+      baja:['']
 
     })
 
@@ -125,6 +126,7 @@ export class RegistrarequipoComponent implements OnInit {
       preventivas:this.createEquipo.value.preventivas,
       consultorio: this.createEquipo.value.consultorio,
       alimentacion: this.createEquipo.value.alimentacion,
+      baja: "no"
 
     }
 

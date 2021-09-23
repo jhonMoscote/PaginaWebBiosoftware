@@ -185,7 +185,7 @@ export class FormatoDarBajaComponent implements OnInit {
   editarEquipo(id: string) {
    
    this.productoCollection= this.firestore.collection('equipos');
-   this.productoCollection.doc(id).update({clasificacionRiesgo:'Dado de Baja'}).catch(console.log)
+   this.productoCollection.doc(id).update({baja:'si'}).catch(console.log)
 
   }
 

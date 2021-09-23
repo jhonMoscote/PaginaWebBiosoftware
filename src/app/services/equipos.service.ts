@@ -103,11 +103,11 @@ export class EquiposService {
  
    }
   getEquiposAlmacenClase3(){
-    return  this.firestore.collection('equipos', ref => ref.where("clasificacionRiesgo","==", "CLASE III")).snapshotChanges();
+    return  this.firestore.collection('equipos', ref => ref.where("clasificacionRiesgo","==", "CLASE III").where("baja","==","no")).snapshotChanges();
  
    }
    getEquiposAlmacenRiesgoBajo(){
-    return this.firestore.collection('equipos', ref => ref.where("clasificacionRiesgo", "==", "CLASE I")).snapshotChanges();
+    return this.firestore.collection('equipos', ref => ref.where("clasificacionRiesgo", "==", "CLASE I").where("baja","==","no")).snapshotChanges();
  
    }
    getEquiposConsultorioMedicina1(){
@@ -158,16 +158,16 @@ export class EquiposService {
    }
    getEquiposAlmacenRiesgoMedio(){
  
-    return this.firestore.collection('equipos', ref => ref.where("clasificacionRiesgo","==", "CLASE II B")).snapshotChanges();
+    return this.firestore.collection('equipos', ref => ref.where("clasificacionRiesgo","==", "CLASE II B").where("baja","==","no")).snapshotChanges();
  
    }
    getEquiposAlmacenClase2A(){
  
-    return this.firestore.collection('equipos', ref => ref.where("clasificacionRiesgo","==", "CLASE II A")).snapshotChanges();
+    return this.firestore.collection('equipos', ref => ref.where("clasificacionRiesgo", "==", "CLASE II A").where("baja","==","no") ).snapshotChanges();
  
    }
    getEquiposAlmacenDadosBaja(){
-    return this.firestore.collection('equipos', ref => ref.where("clasificacionRiesgo", "==", "Dado de Baja")).snapshotChanges();
+    return this.firestore.collection('equipos', ref => ref.where("baja", "==", "si")).snapshotChanges();
  
    }
   getEquipo(id: string): Observable<any>{

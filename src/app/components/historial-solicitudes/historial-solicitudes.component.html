@@ -1,0 +1,49 @@
+<app-navbar></app-navbar>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Historial De Solicitudes de Mantenimiento</title>
+    </head>
+<body>
+
+    <div class="card"> 
+    <div class="container">
+        <h1 class="text-center mt-3 mb-4">Solicitudes de Mantenimiento Correctivo</h1> 
+        <br>
+    </div>
+        <div class="container">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">¿Quién reporta?</th>
+                        <th scope="col">Falla del Equipo</th>
+                        <th scope="col">Servicio</th>
+                        <th scope="col">Ubicación</th>
+                        <th scope="col">Fecha de Solicitud</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let solicitudes of SolicitudesCorrectivos">
+        
+                        <td>{{solicitudes.nombre}}</td> 
+                        <td>{{solicitudes.falla}}</td>
+                        <td> {{solicitudes.servicio }}</td> 
+                        <td>{{solicitudes.ubicacion}}</td>
+                        <td>{{solicitudes.fecha}}</td>
+                        <td><a routerLink="/formatoSolicitudCorrectivo">ddd</a></td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+        </div>
+    </div>
+
+</body>
+</html>
+   
+
+

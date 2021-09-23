@@ -8,17 +8,24 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class PorcentajeCorrectivoComponent implements OnInit {
   mantenimientoss :any[]=[];
+  mantenimientosCorrectivos: any[]=[];
   numeronorealizados:number;
+  NumeroProgramadosCorrectivos: number;
   constructor(private firestore: AngularFirestore) { }
 
   ngOnInit(): void {
-    this.getFallasPersonal()
+    this.getFallasPersonal(), this.getNumeroCorrectivos()
   }
   consultaPreventivo(){
     return this.firestore.collection("correctivo", ref => ref.where("asistencia" ,"==", "Correctivo" )).snapshotChanges();
    
      
      }
+
+
+  consultaCorrectivo(){
+    return this.firestore.collection("Reporte").snapshotChanges();
+  }
 
   getFallasPersonal(){
     this.
@@ -33,8 +40,22 @@ export class PorcentajeCorrectivoComponent implements OnInit {
           ...element.payload.doc.data()
         })
       });
-      console.log("numero"+this.mantenimientoss.length);
+      
 this.numeronorealizados = this.mantenimientoss.length;
+    })
+  }
+
+  getNumeroCorrectivos(){
+    this.consultaCorrectivo().subscribe(data=>{
+      this.mantenimientosCorrectivos=[];
+      data.forEach((element:any)=>{
+        this.mantenimientosCorrectivos.push({
+          id: element.payload.doc.id,
+          ...element.payload.doc.data()
+        })
+      });
+      this.NumeroProgramadosCorrectivos = this.mantenimientosCorrectivos.length;
+      
     })
   }
 

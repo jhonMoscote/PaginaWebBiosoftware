@@ -102,6 +102,9 @@ import { ReportePreventivoComponent } from './components/reporte-preventivo/repo
 import { ProtocololimpiezaComponent } from './components/protocololimpieza/protocololimpieza.component';
 import { CodigoqrComponent } from './components/codigoqr/codigoqr.component';
 import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
+import { HistorialSolicitudesComponent } from './components/historial-solicitudes/historial-solicitudes.component';
+import { HistorialSolicitudesNoRealizadasComponent } from './components/historial-solicitudes-no-realizadas/historial-solicitudes-no-realizadas.component';
+import { FormatoSolicitudCorrectivoComponent } from './components/formato-solicitud-correctivo/formato-solicitud-correctivo.component';
 
 
 @NgModule({
@@ -185,6 +188,9 @@ import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
     ReportePreventivoComponent,
     ProtocololimpiezaComponent,
     CodigoqrComponent,
+    HistorialSolicitudesComponent,
+    HistorialSolicitudesNoRealizadasComponent,
+    FormatoSolicitudCorrectivoComponent,
  
    
   ],

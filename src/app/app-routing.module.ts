@@ -33,6 +33,9 @@ import { FallasEquipoComponent } from './components/fallas-equipo/fallas-equipo.
 import { FallasPersonalComponent } from './components/fallas-personal/fallas-personal.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { FormatoDarBajaComponent } from './components/formato-dar-baja/formato-dar-baja.component';
+import { FormatoSolicitudCorrectivoComponent } from './components/formato-solicitud-correctivo/formato-solicitud-correctivo.component';
+import { HistorialSolicitudesNoRealizadasComponent } from './components/historial-solicitudes-no-realizadas/historial-solicitudes-no-realizadas.component';
+import { HistorialSolicitudesComponent } from './components/historial-solicitudes/historial-solicitudes.component';
 import { HistorialmantenimientoComponent } from './components/historialmantenimiento/historialmantenimiento.component';
 import { HistorialmantenimientopreventivoComponent } from './components/historialmantenimientopreventivo/historialmantenimientopreventivo.component';
 import { ActualizarequipoComponent } from './components/hojadevida/actualizarequipo/actualizarequipo.component';
@@ -162,7 +165,10 @@ const routes: Routes = [
   {path: 'reportepreventivo/:id', component: ReportePreventivoComponent,canActivate: [AuthGuard]},
   {path: 'reportecorrectivo/:id',component: ReporteCorrectivoComponent,canActivate: [AuthGuard]},
   {path:'protocololimpieza/:id', component: ProtocololimpiezaComponent, canActivate:[AuthGuard]},
-  {path:'codigoqr/:id', component: CodigoqrComponent, canActivate:[AuthGuard]}
+  {path:'codigoqr/:id', component: CodigoqrComponent, canActivate:[AuthGuard]},
+  {path:'historialsolictudes/:id',component:HistorialSolicitudesComponent, canActivate:[AuthGuard]},
+  {path:'historialsolicitudesnorealizadas/:id', component: HistorialSolicitudesNoRealizadasComponent, canActivate:[AuthGuard]},
+  {path:'formatoSolicitudCorrectivo', component:FormatoSolicitudCorrectivoComponent,canActivate:[AuthGuard]}
  
 
  
